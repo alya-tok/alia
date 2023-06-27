@@ -24,7 +24,7 @@ exports.run = {
                let old = new Date()
                Func.hitstat('yt', m.sender)
                links.map(async link => {
-               const json = await Func.fetchJson(API('alya', '/api/ytv', { url: link }, 'apikey'))
+               const json = await ytv(link)
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
                let caption = `乂  *Y T - M P 4*\n\n`
                caption += `	◦  *Title* : ${json.title}\n`
