@@ -15,12 +15,6 @@ exports.run = {
          let old = new Date()
          let json = await Func.fetchJson(API('alya', '/api/pins', { url: args[0] }, 'apikey'))
          if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-         let caption = `乂  *P I N T E R E S T*\n\n`
-         caption += `	◦  *Title* : ${json.title}\n`
-         caption += `	◦  *Size* : ${json.data.size}\n`
-         caption += `	◦  *Duration* : ${json.duration}\n`
-         caption += `	◦  *Quality* : ${json.data.quality}\n\n`
-         caption += global.footer
          client.sendFile(m.chat, json.data.url, Func.filename('mp4'), caption, m)
       } catch {
          return client.reply(m.chat, global.status.error, m)
