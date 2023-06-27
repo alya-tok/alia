@@ -24,7 +24,6 @@ exports.run = {
             teks += '	◦  *Upload* : ' + json.data.date + '\n'
             teks += '	◦  *Durasi* : ' + json.data.duration + '\n'
             teks += '	◦  *Rating* : ' + json.data.rating + '\n'
-            teks += '	◦  *Views* : ' + json.data.views + '\n'
             teks += '	◦  *Status* : ' + json.data.season[1] || json.data.season[0] + '\n'
             teks += '	◦  *Sinopsis* : ' + json.data.sinopsis + '\n\n'
             teks += '乂  *D O W N L O A D*\n\n'
