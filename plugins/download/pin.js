@@ -15,7 +15,7 @@ exports.run = {
          let old = new Date()
          let json = await Func.fetchJson(API('alya', '/api/pins', { url: args[0] }, 'apikey'))
          if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-         client.sendFile(m.chat, json.data.url, Func.filename('mp4'), caption, m)
+         client.sendFile(m.chat, json.data.url, '', '', m)
       } catch {
          return client.reply(m.chat, global.status.error, m)
       }
