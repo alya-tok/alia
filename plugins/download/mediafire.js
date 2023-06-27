@@ -25,12 +25,12 @@ exports.run = {
          text += '	◦  *Uploaded* : ' + json.data.uploadAt + '\n\n'
          text += global.footer
          let chSize = Func.sizeLimit(json.data.size, global.max_upload)
-         if (chSize.oversize) return client.reply(m.chat, `💀 Ukuran file (${json.data.filesize}) melebihi batas maksimum, unduh sendiri melalui tautan ini : ${await (await scrap.shorten(json.data.url)).data.url}`, m)
+         if (chSize.oversize) return client.reply(m.chat, `💀 Ukuran file (${json.data.filesize}) melebihi batas maksimum, unduh sendiri melalui tautan ini : ${await (await scrap.shorten(json.data.link)).data.url}`, m)
          client.sendMessageModify(m.chat, text, m, {
             largeThumb: true,
             thumbnail: await Func.fetchBuffer('https://telegra.ph/file/fcf56d646aa059af84126.jpg')
          }).then(async () => {
-            client.sendFile(m.chat, json.data.url, unescape(decode(json.data.filename)), '', m)
+            client.sendFile(m.chat, json.data.link, unescape(decode(json.data.filename)), '', m)
          })
       } catch {
          return client.reply(m.chat, global.status.error, m)
