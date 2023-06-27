@@ -17,7 +17,7 @@ exports.run = {
                let img = await client.downloadMediaMessage(q)
                let json = await scrap.uploadImage(img)
                let inpt = await Func.fetchJson(API('alya', '/api/enhance', { image: json.data.url }, 'apikey'))
-               if (!json.status) return m.reply(Func.jsonFormat(inpt))
+               if (!inpt.status) return m.reply(Func.jsonFormat(inpt))
                client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
             } else client.reply(m.chat, Func.texted('bold', `🚩 Hanya untuk photo.`), m)
          } else {
@@ -29,7 +29,7 @@ exports.run = {
             let img = await q.download()
             let json = await scrap.uploadImage(img)
             let inpt = await Func.fetchJson(API('alya', '/api/enhance', { image: json.data.url }, 'apikey'))
-            if (!json.status) return m.reply(Func.jsonFormat(inpt))
+            if (!inpt.status) return m.reply(Func.jsonFormat(inpt))
             client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
          }
       } catch (e) {
