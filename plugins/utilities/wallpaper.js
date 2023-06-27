@@ -20,7 +20,7 @@ exports.run = {
             let caption = `乂  *W A L L P A P E R*\n\n`
             caption += `	◦ *Keywords* : ${json.data[rand].keywords}\n`
             caption += `	◦ *Size* : ${json.data[rand].size}\n`
-            caption += `	◦ *Dimensions* : ${json.data[rand].dimensi}\n\n`
+            caption += `	◦ *Dimensions* : ${json.data[rand].dimention}\n\n`
             caption += global.footer
             client.sendFile(m.chat, json.data[rand].url, '', caption, m)
             await Func.delay(2000)
