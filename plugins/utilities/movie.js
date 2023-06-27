@@ -27,7 +27,7 @@ exports.run = {
             teks += '	◦  *Status* : ' + json.data.season[1] || json.data.season[0] + '\n'
             teks += '	◦  *Sinopsis* : ' + json.data.sinopsis + '\n\n'
             teks += '乂  *D O W N L O A D*\n\n'
-            teks += json.server.map(v => `◦ ${v.url} (${v.label})`).join('\n') + '\n\n'
+            teks += json.data.server.map(v => `◦ ${v.url} (${v.label})`).join('\n') + '\n\n'
             teks += global.footer
             client.sendMessageModify(m.chat, teks, m, {
             title: 'M O V I E S - S E A R C H',
