@@ -16,7 +16,7 @@ exports.run = {
          let json = await Func.fetchJson(API('alya', '/api/twitter', { url: args[0] }, 'apikey'))
          let old = new Date()
          if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m) 
-         client.sendFile(m.chat, json.data[0].url, '', caption, m)
+         client.sendFile(m.chat, json.data[0].url, '', '', m)
       } catch (e) {
          console.log(e)
          return client.reply(m.chat, global.status.error, m)
