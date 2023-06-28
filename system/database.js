@@ -102,8 +102,8 @@ module.exports = (m) => {
       if (!('error' in setting)) setting.error = []
       if (!('pluginDisable' in setting)) setting.pluginDisable = []
       if (!('groupmode' in setting)) setting.groupmode = false
-      if (!('sk_pack' in setting)) setting.sk_pack = 'Whatsapp bot by'
-      if (!('sk_author' in setting)) setting.sk_author = '@alya'
+      if (!('sk_pack' in setting)) setting.sk_pack = 'Created by'
+      if (!('sk_author' in setting)) setting.sk_author = '@Alia'
       if (!('self' in setting)) setting.self = false
       if (!('mimic' in setting)) setting.mimic = []
       if (!('noprefix' in setting)) setting.noprefix = false
@@ -114,7 +114,7 @@ module.exports = (m) => {
       if (!('onlyprefix' in setting)) setting.onlyprefix = '+'
       if (!('owners' in setting)) setting.owners = ['6285815700861']
       if (!isNumber(setting.lastReset)) setting.lastReset = new Date * 1
-      if (!('msg' in setting)) setting.msg = 'Hi +tag 🪸\nSaya adalah sebuah sistem otomatis (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.\n\n◦ *Database* : +db\n◦ *Library* : Baileys v+version\n◦ *Rest API* : https://alyachan.my.id\n◦ *Uploader* : https://storage.alyachan.my.id\n\nJika Anda menemukan kesalahan atau ingin meningkatkan paket premium, hubungi owner.'
+      if (!('msg' in setting)) setting.msg = 'Hi +tag 🪸\nSaya adalah sebuah sistem otomatis (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.\n\n◦ *Database* : +db\n◦ *Library* : Baileys v+version\n◦ *Rest API* : https://api.alyachan.my.id\n◦ *Source* : https://github.com/alya-tok/alya-bot\n\nJika Anda menemukan kesalahan atau ingin meningkatkan paket premium, hubungi owner.'
       if (!isNumber(setting.menuStyle)) setting.menuStyle = 4
       if (!('cover' in setting)) setting.cover = 'https://telegra.ph/file/0c09fe32970d4d9993b29.jpg'
       if (!('link' in setting)) setting.link = 'https://chat.whatsapp.com/IaXnDzbbhNfBfTv0nN7bJI'
@@ -126,8 +126,8 @@ module.exports = (m) => {
          error: [],
          pluginDisable: [],
          groupmode: false,
-         sk_pack: 'Whatsapp bot by',
-         sk_author: '@alya',
+         sk_pack: 'Created by',
+         sk_author: '@Alia',
          self: false,
          mimic: [],
          noprefix: false,
@@ -138,7 +138,7 @@ module.exports = (m) => {
          onlyprefix: '+',
          owners: ['6285815700861'],
          lastReset: new Date * 1,
-         msg: 'Hi +tag 🪸\nSaya adalah sebuah sistem otomatis (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.\n\n◦ *Database* : +db\n◦ *Library* : Baileys v+version\n◦ *Rest API* : https://alyachan.my.id\n◦ *Uploader* : https://storage.alyachan.my.id\n\nJika Anda menemukan kesalahan atau ingin meningkatkan paket premium, hubungi owner.',
+         msg: 'Hi +tag 🪸\nSaya adalah sebuah sistem otomatis (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.\n\n◦ *Database* : +db\n◦ *Library* : Baileys v+version\n◦ *Rest API* : https://api.alyachan.my.id\n◦ *Source* : https://github.com/alya-tok/alya-bot\n\nJika Anda menemukan kesalahan atau ingin meningkatkan paket premium, hubungi owner.',
          menuStyle: 4,
          cover: 'https://telegra.ph/file/0c09fe32970d4d9993b29.jpg',
          link: 'https://chat.whatsapp.com/IaXnDzbbhNfBfTv0nN7bJI'
