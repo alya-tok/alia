@@ -15,17 +15,8 @@ exports.run = {
          client.sendReact(m.chat, '🕒', m.key)
          let json = await Func.fetchJson(API('alya', '/api/twitter', { url: args[0] }, 'apikey'))
          let old = new Date()
-         if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-         let caption = `乂  *T W I T T E R*\n\n`         
-         caption += `	◦  *Acount* : ${json.username}\n`         
-         caption += `	◦  *Author* : ${json.nickname}\n`
-         caption += `	◦  *Likes* : ${json.like_count}\n`
-         caption += `	◦  *Views* : ${json.view_count}\n`
-         caption += `	◦  *duration* : ${json.duration}\n`
-         caption += `	◦  *Comments* : ${json.comment_count}\n`
-         caption += `	◦  *Captions* : ${json.title}\n\n`
-         caption += global.footer                     
-         client.sendFile(m.chat, json.data.url, '', caption, m)
+         if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m) 
+         client.sendFile(m.chat, json.data[0].url, '', caption, m)
       } catch (e) {
          console.log(e)
          return client.reply(m.chat, global.status.error, m)
