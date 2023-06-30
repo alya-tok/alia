@@ -59,7 +59,7 @@ exports.run = {
                document: true
             }))
             client.sendFile(m.chat, json.data.url, Func.filename('mp4'), caption, m)
-         } else if (command == 'yts' || command == 'ytsear h') {
+         } else if (command == 'yts' || command == 'ytsearch') {
           client.sendReact(m.chat, '🕒', m.key)
           let yt = await (await yts(text)).all
           if (yt.length == 0) return client.reply(m.chat, global.status.fail, m)
