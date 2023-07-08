@@ -12,7 +12,7 @@ exports.run = {
     try {
       if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'Cara masak mi'), m)
       client.sendReact(m.chat, '🕒', m.key)
-      let json = await Func.fetchJson(API('alya', '/api/chatgpt', { prompt: text }, 'apikey'))
+      let json = await Func.fetchJson(API('alya', '/api/openai', { prompt: text }, 'apikey'))
       if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
       client.reply(m.chat, json.data.content, m)
     } catch (e) {
