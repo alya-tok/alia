@@ -35,7 +35,7 @@ global.footer = 'ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ᴍᴀᴅᴇ 
 // Scraper
 global.scrap = Scraper
 // Function
-global.Func = new (require("system/function"))()
+global.Func = Function
 // Global status
 global.status = Object.freeze({
    wait: Func.texted('bold', 'Processed . . .'),
