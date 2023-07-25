@@ -18,7 +18,7 @@ exports.run = {
                let json = await scrap.uploadImage(img)
                let inpt = await Func.fetchJson(API('alya', '/api/colorizer', { image: json.data.url }, 'apikey'))
                if (!inpt.status) return m.reply(Func.jsonFormat(inpt))
-               client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
+               client.sendFile(m.chat, json.data.url, '', '', m)
             } else client.reply(m.chat, Func.texted('bold', `🚩 Hanya untuk photo.`), m)
          } else {
             let q = m.quoted ? m.quoted : m
@@ -30,7 +30,7 @@ exports.run = {
             let json = await scrap.uploadImage(img)
             let inpt = await Func.fetchJson(API('alya', '/api/colorizer', { image: json.data.url }, 'apikey'))
             if (!inpt.status) return m.reply(Func.jsonFormat(inpt))
-            client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
+            client.sendFile(m.chat, json.data.url, '', '', m)
          }
       } catch (e) {
          return client.reply(m.chat, Func.jsonFormat(e), m)
