@@ -24,7 +24,10 @@ exports.run = {
                links.map(async link => {
                let json = await Func.fetchJson(API('alya', '/api/pins', { url: link }, 'apikey'))
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-               client.sendFile(m.chat, json.data.url, '', '', m)
+               json.data.map(v => {
+              if (v.type == 'video') return client.sendFile(m.chat, v.url, 'video.mp4', '', m)
+              if (v.type == 'image') return client.sendFile(m.chat, v.url, 'image.jpg', '', m)
+                  })
                })
             }
          }
