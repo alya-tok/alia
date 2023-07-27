@@ -19,8 +19,8 @@ exports.run = {
          if (result) {
          client.sendFile(m.chat, result.url, Func.filename('mp4'), `◦ *Quality* : HD`, m)
          } else {
-            let result = json.data.find(v => v.quality == 'SD' && v.response == 200)
-            if (!result) return client.reply(m.chat, global.status.fail, m)
+         let result = json.data.find(v => v.quality == 'SD' && v.response == 200)
+         if (!result) return client.reply(m.chat, global.status.fail, m)
          client.sendFile(m.chat, result.url, Func.filename('mp4'), `◦ *Quality* : SD`, m)
          }
          } catch (e) {
