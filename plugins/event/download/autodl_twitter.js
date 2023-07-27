@@ -24,7 +24,7 @@ exports.run = {
                links.map(async link => {
                let json = await Func.fetchJson(API('alya', '/api/twitter', { url: link }, 'apikey'))
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-               client.sendFile(m.chat, json.data[0].url, '', '', m)
+               json.data.map(v => client.sendFile(m.chat, v.url, '', '', m))
                })
             }
          }
