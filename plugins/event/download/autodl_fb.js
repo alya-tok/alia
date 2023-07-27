@@ -24,7 +24,14 @@ exports.run = {
                links.map(async link => {
                let json = await Func.fetchJson(API('alya', '/api/fb', { url: link }, 'apikey'))
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-               client.sendFile(m.chat, json.data[0].url, Func.filename('mp4'), `◦ *Quality* : ${json.data[0].quality}`, m)
+               let result = json.data.find(v => v.quality == 'HD' && v.response == 200)
+               if (result) {
+               client.sendFile(m.chat, result.url, Func.filename('mp4'), `◦ *Quality* : HD`, m)
+               } else {
+               let result = json.data.find(v => v.quality == 'SD' && v.response == 200)
+               if (!result) return client.reply(m.chat, global.status.fail, m)
+               client.sendFile(m.chat, result.url, Func.filename('mp4'), `◦ *Quality* : SD`, m)
+                  }
                })
             }
          }
