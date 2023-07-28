@@ -1,7 +1,7 @@
 exports.run = {
    usage: ['ig'],
    hidden: ['igdl'],
-   use: 'link',
+   use: 'username / link',
    category: 'downloader',
    async: async (m, {
       client,
