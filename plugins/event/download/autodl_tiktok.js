@@ -33,7 +33,15 @@ exports.run = {
                teks += '	◦  *Comment* : ' + json.stats.comment + '\n'
                teks += '	◦  *Uploaded* : ' + json.taken_at + '\n'
                teks += '	◦  *Captions* : ' + json.title + '\n\n'
-               teks += global.footer            
+               teks += global.footer
+               if (json.durations == 0) {
+               let jsons = await Func.fetchJson(API('alya', '/api/ttslide', { url: link }, 'apikey'))
+               if (!jsons.status) return client.reply(m.chat, Func.jsonFormat(jsons), m)
+               jsons.data.map(async v => {
+               client.sendFile(m.chat, v.url, '', teks, m)
+               await Func.delay(1500)
+               })
+               }
                client.sendFile(m.chat, json.data.video_nowm, '', teks, m)
                })
             }
