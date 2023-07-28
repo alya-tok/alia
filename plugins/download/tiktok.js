@@ -28,7 +28,7 @@ exports.run = {
          teks += global.footer
          if (json.durations == 0) {
          let jsons = await Func.fetchJson(API('alya', '/api/ttslide', { url: args[0] }, 'apikey'))
-         if (!jsons.status) return client.reply(m.chat, Func.jsonFormat(json), m)
+         if (!jsons.status) return client.reply(m.chat, Func.jsonFormat(jsons), m)
          jsons.data.map(async v => {
          client.sendFile(m.chat, v.url, '', teks, m)
          await Func.delay(1500)
