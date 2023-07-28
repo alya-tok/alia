@@ -18,7 +18,7 @@ exports.run = {
          if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
          if (command == 'tiktok' || command == 'tt') {
          let teks = `乂  *T I K T O K*\n\n`
-         teks += '	◦  *Author* : ' + json.author.nickname + '\n'
+         teks += '	◦  *Author* : ' + json.author.nickname + ' (' + json.author.fullname + ')' +  '\n'
          teks += '	◦  *Views* : ' + json.stats.views + '\n'
          teks += '	◦  *Likes* : ' + json.stats.likes + '\n'
          teks += '	◦  *Dishare* : ' + json.stats.share + '\n'
@@ -37,7 +37,7 @@ exports.run = {
          client.sendFile(m.chat, json.data.video_nowm, '', teks, m)
          } else if (command == 'tikwm') {
          let teks = `乂  *T I K T O K*\n\n`
-         teks += '	◦  *Author* : ' + json.author.nickname + '\n'
+         teks += '	◦  *Author* : ' + json.author.nickname + ' (' + json.author.fullname + ')' +  '\n'
          teks += '	◦  *Views* : ' + json.stats.views + '\n'
          teks += '	◦  *Likes* : ' + json.stats.likes + '\n'
          teks += '	◦  *Dishare* : ' + json.stats.share + '\n'
