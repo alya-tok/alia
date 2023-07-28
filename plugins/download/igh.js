@@ -1,6 +1,6 @@
 exports.run = {
    usage: ['igh'],
-   use: 'link',
+   use: 'username / link',
    category: 'downloader',
    async: async (m, {
       client,
