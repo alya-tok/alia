@@ -26,7 +26,7 @@ exports.run = {
                let json = await Func.fetchJson(API('alya', '/api/tiktok', { url: link }, 'apikey'))
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
                let teks = `乂  *T I K T O K*\n\n`
-               teks += '	◦  *Author* : ' + json.author.nickname + '\n'
+               teks += '	◦  *Author* : ' + json.author.nickname + ' (' + json.author.fullname + ')' +  '\n'
                teks += '	◦  *Views* : ' + json.stats.views + '\n'
                teks += '	◦  *Likes* : ' + json.stats.likes + '\n'
                teks += '	◦  *Dishare* : ' + json.stats.share + '\n'
