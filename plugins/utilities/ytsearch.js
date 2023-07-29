@@ -17,7 +17,7 @@ exports.run = {
         let urls = m.quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
         if (!urls) return client.reply(m.chat, Func.texted('bold', `🚩 Mungkin pesan yang Anda balas tidak berisi hasil penelusuran dari youtube.`), m)
          client.sendReact(m.chat, '🕒', m.key)
-         const json = await require('lib/y2mate').yta(urls[text - 1])
+         const json = await Func.fetchJson(API('alya', '/api/yta', { url: urls[text - 1] }, 'apikey'))
          if (!json.status) return client.reply(m.chat, global.status.fail, m)
             let caption = `乂  *Y T - P L A Y*\n\n`
             caption += `	◦  *Title* : ${json.title}\n`
@@ -41,7 +41,7 @@ exports.run = {
         let urls = m.quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
         if (!urls) return client.reply(m.chat, Func.texted('bold', `🚩 Mungkin pesan yang Anda balas tidak berisi hasil penelusuran dari youtube.`), m)
         client.sendReact(m.chat, '🕒', m.key)
-          const json = await require('lib/y2mate').ytv(urls[text - 1])
+          const json = await Func.fetchJson(API('alya', '/api/ytv', { url: urls[text - 1] }, 'apikey'))
           if (!json.status) return client.reply(m.chat, global.status.fail, m)
             let caption = `乂  *Y T - M P 4*\n\n`
             caption += `	◦  *Title* : ${json.title}\n`
