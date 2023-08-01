@@ -26,7 +26,7 @@ exports.run = {
                   let json = await Func.fetchJson(API('alya', '/api/ig', { url: Func.igFixed(link) }, 'apikey'), { 'referer': 'https://saveig.app/en' })
                   if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
                   json.data.map(async v => {
-                  	const result = await Func.getFile(await (await axios.get(v.url, {
+                     const result = await Func.getFile(await (await axios.get(v.url, {
                      responseType: 'arraybuffer',
                      headers: {
                      referer: 'https://saveig.app/en'
