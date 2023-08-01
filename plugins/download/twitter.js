@@ -1,3 +1,4 @@
+const axios = require('axios')
 exports.run = {
    usage: ['twitter'],
    hidden: ['tw', 'twdl'],
@@ -13,10 +14,18 @@ exports.run = {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://twitter.com/mosidik/status/1475812845249957889?s=20'), m)
          if (!args[0].match(/(twitter.com)/gi)) return client.reply(m.chat, global.status.invalid, m)
          client.sendReact(m.chat, '🕒', m.key)
-         let json = await Func.fetchJson(API('alya', '/api/twitter', { url: args[0] }, 'apikey'))
-         let old = new Date()
+         let json = await Func.fetchJson(API('alya', '/api/twitter', { url: args[0] }, 'apikey'), { 'referer': 'https://savetwitter.net' })
          if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-         json.data.map(v => client.sendFile(m.chat, v.url, '', '', m))
+         json.data.map(async v => {
+         const result = await Func.getFile(await (await axios.get(v.url, {
+         responseType: 'arraybuffer',
+         headers: {
+         referer: 'https://savetwitter.net'
+         }
+         })).data)
+        client.sendFile(m.chat, './' + result.file, '', '', m)
+        await Func.delay(1500)
+        })
       } catch (e) {
          console.log(e)
          return client.reply(m.chat, global.status.error, m)
