@@ -1,3 +1,4 @@
+const axios = require('axios')
 exports.run = {
    regex: /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com\/)(?:tv\/|p\/|reel\/)(?:\S+)?$/,
    async: async (m, {
@@ -22,10 +23,16 @@ exports.run = {
                let old = new Date()
                Func.hitstat('ig', m.sender)
                links.map(async link => {
-                  let json = await Func.fetchJson(API('alya', '/api/ig', { url: Func.igFixed(link) }, 'apikey'))
+                  let json = await Func.fetchJson(API('alya', '/api/ig', { url: Func.igFixed(link) }, 'apikey'), { 'referer': 'https://saveig.app/en' })
                   if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
                   json.data.map(async v => {
-                     client.sendFile(m.chat, v.url, '', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
+                  	const result = await Func.getFile(await (await axios.get(v.url, {
+                     responseType: 'arraybuffer',
+                     headers: {
+                     referer: 'https://saveig.app/en'
+                     }
+                     })).data)
+                     client.sendFile(m.chat, './' + result.file, '', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
                      await Func.delay(1500)
                   })
                })
