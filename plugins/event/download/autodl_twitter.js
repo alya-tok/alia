@@ -22,9 +22,18 @@ exports.run = {
                let old = new Date()
                Func.hitstat('twitter', m.sender)
                links.map(async link => {
-               let json = await Func.fetchJson(API('alya', '/api/twitter', { url: link }, 'apikey'))
+               let json = await Func.fetchJson(API('alya', '/api/twitter', { url: link }, 'apikey'), { 'referer': 'https://savetwitter.net' })
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-               json.data.map(v => client.sendFile(m.chat, v.url, '', '', m))
+               json.data.map(async v => {
+               const result = await Func.getFile(await (await axios.get(v.url, {
+               responseType: 'arraybuffer',
+               headers: {
+               referer: 'https://savetwitter.net'
+               }
+               })).data)
+               client.sendFile(m.chat, './' + result.file, '', '', m)
+               await Func.delay(1500)
+                  })
                })
             }
          }
