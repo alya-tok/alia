@@ -1,7 +1,7 @@
 const { Function, Scraper } = new (require('@neoxr/neoxr-js'))
 //Apikey system
 global.APIs = {
-alya: 'https://api.alyachan.online', // website api entire bot feature
+alya: 'https://api.alyachan.biz.id', // website api entire bot feature
 apikey: 'YOUR_KEY' // fill with your apikey, don't have apikey? registered https://api.alyachan.online/login
 }
 // Owner number
