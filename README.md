@@ -10,7 +10,7 @@
 
 ### Configuration
 
-There are 2 configuration files namely ```.env``` and ```config.json```, adjust them before installing.
+There are 2 configuration files namely ```.env```, ```config.js``` and ```config.json```, adjust them before installing.
 
 ```Javascript
 {
@@ -33,6 +33,16 @@ There are 2 configuration files namely ```.env``` and ```config.json```, adjust 
 
 ### Database : https://www.mongodb.com/
 DATABASE_URL = ''
+```
+
+```config.js
+
+global.APIs = {
+   alya: 'https://api.alyachan.biz.id'
+}
+global.APIKeys = {
+   'https://api.alyachan.biz.id': 'YOURKEY'
+}
 ```
 
 **Notes** :
