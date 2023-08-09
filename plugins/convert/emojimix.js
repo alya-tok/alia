@@ -15,9 +15,7 @@ exports.run = {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, '😳+😩'), m)
          let [emo1, emo2] = text.split`+`
          if (!emo1 || !emo2) return client.reply(m.chat, Func.texted('bold', `🚩 Give 2 emoji to mix.`), m)
-         const json = await Api.neoxr('/emoji', {
-            q: emo1 + '_' + emo2
-         })
+         const json = await Func.fetchJson(API('alya', '/api/emomix', { emo_a: emo1, emo_b: emo2 }, 'apikey'))
          if (!json.status) return client.reply(m.chat, Func.texted('bold', `🚩 Emoji can't be mixed.`), m)
          await client.sendSticker(m.chat, json.data.url, m, {
             packname: exif.sk_pack,
