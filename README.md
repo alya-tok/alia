@@ -1,34 +1,6 @@
-## NEOXR-BOT V4.0-RC (BETA)
+## ALYA-BOT V4.1-RC
 
 > An implementation of [@neoxr/wb](https://www.npmjs.com/package/@neoxr/wb) which has been optimized to be lightweigth.
-
-### Premium Script v3.0.1-Optima
-
-🏷️ Price : **Rp. 150.000 / $20.80**
-
-**Special Features & Benefit :**
-- AI & AI Image
-- Anti Bot
-- Auto Download
-- Porn Detector (Only Image)
-- 9 Mini Games
-- Leveling & Roles
-- Email Verification
-- Captcha Verification
-- Send Email
-- High Optimation (Hemat Ram)
-- Free Updates
-- Bonus ApiKey 5K Request (for 2 month)
-
-**Additional Features :**
-- 🏷️ Price : **+Rp. 50.000 / +$6.80**
-Temporary Bot Features (Jadibot)
-- 🏷️ Price : **+Rp. 35.000 / +$5.80**
-Chatroom (Conversation w Bot)
-- 🏷️ Price : **+Rp. 15.000 / +$3.80**
-Menfess (Confess)
-
-**Creator / Group** : [Wildan Izzudin](https://wa.me/6285887776722) / [Chatbot](https://chat.whatsapp.com/JA3VN3XpXQuCBB1uVDUx3x)
 
 ### Requirements
 
@@ -42,8 +14,8 @@ There are 2 configuration files namely ```.env``` and ```config.json```, adjust 
 
 ```Javascript
 {
-   "owner": "6285887776722",
-   "owner_name": "Wildan Izzudin",
+   "owner": "62626262626262",
+   "owner_name": "alya",
    "database": "data",
    "limit": 15,
    "ram_limit": "900mb",
@@ -58,8 +30,6 @@ There are 2 configuration files namely ```.env``` and ```config.json```, adjust 
 ```
 
 ```.env
-### ApiKey : https://api.neoxr.my.id
-API_KEY = 'your_apikey'
 
 ### Database : https://www.mongodb.com/
 DATABASE_URL = ''
