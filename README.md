@@ -48,7 +48,7 @@ global.APIKeys = {
 **Notes** :
 + ```ram_limit``` : ram usage limit, for example you have a server with 1gb of ram set before the maximum capacity is 900mb.
 
-+ ```API_KEY``` : some of the features in this script use apikey, especially the downloader feature, to get an apiKey you can get it on the [Neoxr Api's](https://api.neoxr.my.id) with prices that vary according to your needs.
++ ```global.APIKeys``` : some of the features in this script use apikey, especially the downloader feature, to get an apiKey you can get it on the [Alyachan Api's](https://api.alyachan.biz.id) with prices that vary according to your needs.
 
 + ```DATABASE_URL``` : can be filled with mongo and postgresql URLs to use localdb just leave it blank and the data will be saved to the .json file.
 
