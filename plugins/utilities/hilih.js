@@ -6,7 +6,8 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          let vocal = command.charAt(1)

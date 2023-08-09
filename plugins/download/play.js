@@ -9,7 +9,9 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func,
+      env
    }) => {
       try {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'lathi'), m)
@@ -24,7 +26,7 @@ exports.run = {
          caption += `	◦  *Duration* : ${json.duration}\n`
          caption += `	◦  *Bitrate* : ${json.data.quality}\n\n`
          caption += global.footer
-         let chSize = Func.sizeLimit(json.data.size, global.max_upload)
+         let chSize = Func.sizeLimit(json.data.size, env.max_upload)
          if (chSize.oversize) return client.reply(m.chat, `💀 Ukuran file (${json.data.size}) melebihi batas maksimum, unduh sendiri melalui tautan ini : ${await (await scrap.shorten(json.data.url)).data.url}`, m)
          client.sendMessageModify(m.chat, caption, m, {
             largeThumb: true,

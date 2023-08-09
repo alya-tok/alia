@@ -2,7 +2,8 @@ exports.run = {
    usage: ['server'],
    category: 'utilities',
    async: async (m, {
-      client
+      client,
+      Func
    }) => {
       try {
          const json = await Func.fetchJson('http://ip-api.com/json')

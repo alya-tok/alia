@@ -8,7 +8,8 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          if (/get|fetch/i.test(command)) {

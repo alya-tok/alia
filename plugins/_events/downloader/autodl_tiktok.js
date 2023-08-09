@@ -6,7 +6,7 @@ exports.run = {
       users,
       setting,
       prefixes,
-      Func,
+      Func
    }) => {
       try {
          const regex = /^(?:https?:\/\/)?(?:www\.|vt\.|vm\.|t\.)?(?:tiktok\.com\/)(?:\S+)?$/;
@@ -18,34 +18,32 @@ exports.run = {
                   let limit = 1
                   if (users.limit >= limit) {
                      users.limit -= limit
-                  } else return client.reply(m.chat, Func.texted('bold', `🚩 Your limit is not enough to use this feature.`), m)
+                  } else return client.reply(m.chat, Func.texted('bold', `🚩 Limit Anda tidak cukup untuk menggunakan fitur ini.`), m)
                }
                client.sendReact(m.chat, '🕒', m.key)
                let old = new Date()
                Func.hitstat('tiktok', m.sender)
                links.map(async link => {
-                  const json = await Api.neoxr('/tiktok', {
-                  	url: Func.ttFixed(link)
-                  })
-                  if (!json.status) return client.reply(m.chat, Func.texted('bold', `🚩 Error! private videos or videos not available.`), m)
-                  let caption = `乂  *T I K T O K*\n\n`
-                  caption += `	◦  *Author* : ${json.data.author.nickname} (@${json.data.author.username})\n`
-                  caption += `	◦  *Views* : ${Func.formatter(json.data.stats.play_count)}\n`
-                  caption += `	◦  *Likes* : ${Func.formatter(json.data.stats.digg_count)}\n`
-                  caption += `	◦  *Shares* : ${Func.formatter(json.data.stats.share_count)}\n`
-                  caption += `	◦  *Comments* : ${Func.formatter(json.data.stats.comment_count)}\n`
-                  caption += `	◦  *Duration* : ${Func.toTime(json.data.duration)}\n`
-                  caption += `	◦  *Sound* : ${json.data.music.title} - ${json.data.music.author}\n`
-                  caption += `	◦  *Caption* : ${json.data.caption || '-'}\n`
-                  caption += `	◦  *Fetching* : ${((new Date - old) * 1)} ms\n\n`
-                  caption += global.footer
-                  if (json.data.video) return client.sendFile(m.chat, json.data.video, 'video.mp4', caption, m)
-                  if (json.data.photo) {
-                     for (let p of json.data.photo) {
-                        client.sendFile(m.chat, p, 'image.jpg', caption, m)
-                        await Func.delay(1500)
-                     }
-                  }
+               let json = await Func.fetchJson(API('alya', '/api/tiktok', { url: link }, 'apikey'))
+               if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
+               let teks = `乂  *T I K T O K*\n\n`
+               teks += '	◦  *Author* : ' + json.author.nickname + ' (@' + json.author.fullname + ')' +  '\n'
+               teks += '	◦  *Views* : ' + json.stats.views + '\n'
+               teks += '	◦  *Likes* : ' + json.stats.likes + '\n'
+               teks += '	◦  *Dishare* : ' + json.stats.share + '\n'
+               teks += '	◦  *Comment* : ' + json.stats.comment + '\n'
+               teks += '	◦  *Uploaded* : ' + json.taken_at + '\n'
+               teks += '	◦  *Captions* : ' + json.title + '\n\n'
+               teks += global.footer
+               if (json.durations == 0) {
+               let jsons = await Func.fetchJson(API('alya', '/api/ttslide', { url: link }, 'apikey'))
+               if (!jsons.status) return client.reply(m.chat, Func.jsonFormat(jsons), m)
+               jsons.data.map(async v => {
+               client.sendFile(m.chat, v.url, '', teks, m)
+               await Func.delay(1500)
+               })
+               }
+               client.sendFile(m.chat, json.data.video_nowm, '', teks, m)
                })
             }
          }

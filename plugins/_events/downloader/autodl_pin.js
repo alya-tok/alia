@@ -17,19 +17,17 @@ exports.run = {
                   let limit = 1
                   if (users.limit >= limit) {
                      users.limit -= limit
-                  } else return client.reply(m.chat, Func.texted('bold', `🚩 Your limit is not enough to use this feature.`), m)
+                  } else return client.reply(m.chat, Func.texted('bold', `🚩 Limit Anda tidak cukup untuk menggunakan fitur ini.`), m)
                }
                client.sendReact(m.chat, '🕒', m.key)
                let old = new Date()
                Func.hitstat('pin', m.sender)
                links.map(async link => {
-                  let json = await Api.neoxr('/pin', {
-                  	url: link
-                  })
-                  if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-                  if (/jpg|mp4/.test(json.data.type)) return client.sendFile(m.chat, json.data.url, '', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
-                  if (json.data.type == 'gif') return client.sendFile(m.chat, json.data.url, '', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m, {
-                     gif: true
+               let json = await Func.fetchJson(API('alya', '/api/pins', { url: link }, 'apikey'))
+               if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
+               json.data.map(v => {
+              if (v.type == 'video') return client.sendFile(m.chat, v.url, 'video.mp4', '', m)
+              if (v.type == 'image') return client.sendFile(m.chat, v.url, 'image.jpg', '', m)
                   })
                })
             }

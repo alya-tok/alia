@@ -7,7 +7,9 @@ exports.run = {
       text,
       args,
       isPrefix,
-      command
+      command,
+      Func,
+      env
    }) => {
       try {
             if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'fb lite'), m)
@@ -28,7 +30,7 @@ exports.run = {
             teks += '	◦  *Publish* : ' + json.data.updated + '\n'
             teks += '	◦  *Link* : ' + 'https://play.google.com/store/apps/details?id=' + json.data.package + '\n\n'
             teks += global.footer
-            let chSize = Func.sizeLimit(json.data.file.size, global.max_upload)
+            let chSize = Func.sizeLimit(json.data.file.size, env.max_upload)
             if (chSize.oversize) return client.reply(m.chat, `💀 Ukuran file (${json.data.file.size}) melebihi batas maksimum, unduh sendiri melalui tautan ini : ${await (await scrap.shorten(json.data.file.url)).data.url}`, m)
             client.sendMessageModify(m.chat, teks, m, {
             largeThumb: true,

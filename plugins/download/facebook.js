@@ -7,7 +7,8 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://fb.watch/7B5KBCgdO3'), m)

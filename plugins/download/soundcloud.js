@@ -7,7 +7,8 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          if (!text) return client.reply(m.chat, `• ${Func.texted('bold', `Example`)} :\n\n${isPrefix + command} https://soundcloud.com/cipilatoz/keisya-levronka-tak-ingin-usai`, m)

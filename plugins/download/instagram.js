@@ -9,7 +9,8 @@ exports.run = {
       isPrem,
       args,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, `• ${Func.texted('bold', `Example`)} :\n\n${isPrefix + command} nadhin_nada2\n${isPrefix + command} https://www.instagram.com/reel/CuwP3xPAl3G/?igshid=NTc4MTIwNjQ2YQ==`, m)

@@ -3,7 +3,8 @@ exports.run = {
    use: 'reply photo',
    category: 'utilities',
    async: async (m, {
-      client
+      client,
+      Func
    }) => {
       try {
          let old = new Date()

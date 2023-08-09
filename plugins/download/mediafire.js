@@ -8,7 +8,9 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command
+      command,
+      Func,
+      env
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://www.mediafire.com/file/1fqjqg7e8e2v3ao/YOWA.v8.87_By.SamMods.apk/file'), m)
@@ -24,7 +26,7 @@ exports.run = {
          text += '	◦  *Mime* : ' + json.data.mimetype + '\n'
          text += '	◦  *Uploaded* : ' + json.data.uploadAt + '\n\n'
          text += global.footer
-         let chSize = Func.sizeLimit(json.data.size, global.max_upload)
+         let chSize = Func.sizeLimit(json.data.size, env.max_upload)
          if (chSize.oversize) return client.reply(m.chat, `💀 Ukuran file (${json.data.filesize}) melebihi batas maksimum, unduh sendiri melalui tautan ini : ${await (await scrap.shorten(json.data.link)).data.url}`, m)
          client.sendMessageModify(m.chat, text, m, {
             largeThumb: true,

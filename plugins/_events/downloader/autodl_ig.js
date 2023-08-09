@@ -1,3 +1,4 @@
+const axios = require('axios')
 exports.run = {
    regex: /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com\/)(?:tv\/|p\/|reel\/)(?:\S+)?$/,
    async: async (m, {
@@ -17,20 +18,18 @@ exports.run = {
                   let limit = 1
                   if (users.limit >= limit) {
                      users.limit -= limit
-                  } else return client.reply(m.chat, Func.texted('bold', `🚩 Your limit is not enough to use this feature.`), m)
+                  } else return client.reply(m.chat, Func.texted('bold', `🚩 Limit Anda tidak cukup untuk menggunakan fitur ini.`), m)
                }
                client.sendReact(m.chat, '🕒', m.key)
                let old = new Date()
                Func.hitstat('ig', m.sender)
                links.map(async link => {
-                  const json = await Api.neoxr('/ig', {
-                  	url: Func.igFixed(link)
-                  })
+                  let json = await Func.fetchJson(API('alya', '/api/ig', { url: Func.igFixed(link) }, 'apikey'))
                   if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
-                  for (let v of json.data) {
-                     client.sendFile(m.chat, v.url, v.type == 'mp4' ? Func.filename('mp4') : Func.filename('jpg'), `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
+                  json.data.map(async v => {
+                     client.sendFile(m.chat, v.url, '', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
                      await Func.delay(1500)
-                  }
+                  })
                })
             }
          }

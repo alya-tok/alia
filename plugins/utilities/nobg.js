@@ -7,7 +7,8 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          if (m.quoted ? m.quoted.message : m.msg.viewOnce) {
