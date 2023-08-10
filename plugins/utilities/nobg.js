@@ -20,7 +20,7 @@ exports.run = {
                let js = await scrap.uploadImage(img)
                let json = await Func.fetchJson(API('alya', '/api/removebg2', { image: js.data.url }, 'apikey'))
                if (!json.status) return m.reply(Func.jsonFormat(json))
-               client.sendFile(m.chat, Buffer.from(json.data.image, 'base64'), '', '', m)
+               client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
             } else client.reply(m.chat, Func.texted('bold', `🚩 Hanya untuk photo.`), m)
          } else {
             let q = m.quoted ? m.quoted : m
@@ -32,7 +32,7 @@ exports.run = {
             let js = await scrap.uploadImage(img)
             let json = await Func.fetchJson(API('alya', '/api/removebg2', { image: js.data.url }, 'apikey'))
             if (!json.status) return m.reply(Func.jsonFormat(json))
-            client.sendFile(m.chat, Buffer.from(json.data.image, 'base64'), '', '', m)
+            client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
          }
       } catch (e) {
          return client.reply(m.chat, Func.jsonFormat(e), m)
