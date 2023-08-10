@@ -8,8 +8,7 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://twitter.com/mosidik/status/1475812845249957889?s=20'), m)

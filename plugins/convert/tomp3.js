@@ -10,8 +10,7 @@ exports.run = {
    category: 'converter',
    async: async (m, {
       client,
-      command,
-      Func
+      command
    }) => {
       try {
          if (m.quoted && typeof m.quoted.buttons != 'undefined' && typeof m.quoted.videoMessage != 'undefined') {

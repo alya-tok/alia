@@ -2,8 +2,7 @@ exports.run = {
    async: async (m, {
       client,
       isAdmin,
-      isOwner,
-      Func
+      isOwner
    }) => {
       try {
          if (!isOwner && !isAdmin && m.mentionedJid.length > 10) return client.groupParticipantsUpdate(m.chat, [m.sender], 'remove')

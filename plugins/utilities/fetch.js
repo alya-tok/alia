@@ -9,7 +9,7 @@ exports.run = {
       args,
       isPrefix,
       command,
-      Func
+      scrap
    }) => {
       try {
          if (/get|fetch/i.test(command)) {

@@ -3,8 +3,7 @@ exports.run = {
       client,
       body,
       groupSet,
-      isAdmin,
-      Func
+      isAdmin
    }) => {
       try {
          // delete link then kick when antilink is turned on

@@ -8,7 +8,7 @@ exports.run = {
       setting,
       plugins,
       env,
-      Func
+      scrap
    }) => {
       try {
          client.menu = client.menu ? client.menu : {}
@@ -111,7 +111,7 @@ exports.run = {
                   }
                }).join('\n')
             }
-            client.sendMessageModify(m.chat, Func.Styles(print) + '\n\n' + global.footer, m, {
+            client.sendMessageModify(m.chat, print + '\n\n' + global.footer, m, {
                ads: false,
                largeThumb: true,
                thumbnail: setting.cover,

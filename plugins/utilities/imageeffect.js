@@ -7,7 +7,7 @@ exports.run = {
       args,
       isPrefix,
       command,
-      Func
+      scrap
    }) => {
       try {
             let q = m.quoted ? m.quoted : m

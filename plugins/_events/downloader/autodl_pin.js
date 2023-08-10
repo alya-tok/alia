@@ -4,8 +4,7 @@ exports.run = {
       client,
       body,
       users,
-      setting,
-      Func
+      setting
    }) => {
       try {
          const regex = /pin(?:terest)?(?:\.it|\.com)/;

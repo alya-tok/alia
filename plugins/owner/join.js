@@ -6,8 +6,7 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://chat.whatsapp.com/codeInvite'), m)

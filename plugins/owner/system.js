@@ -6,8 +6,7 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       let system = global.db.setting
       let type = command.toLowerCase()

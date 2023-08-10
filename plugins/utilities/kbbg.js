@@ -6,8 +6,7 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       try {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'sasimo'), m)

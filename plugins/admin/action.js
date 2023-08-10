@@ -7,8 +7,7 @@ exports.run = {
       text,
       isPrefix,
       command,
-      participants,
-      Func
+      participants
    }) => {
       let input = text ? text : m.quoted ? m.quoted.sender : m.mentionedJid.length > 0 ? m.mentioneJid[0] : false
       if (!input) return client.reply(m.chat, Func.texted('bold', `🚩 Mention or reply chat target.`), m)

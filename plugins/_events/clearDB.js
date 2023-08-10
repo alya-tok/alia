@@ -1,7 +1,6 @@
 exports.run = {
    async: async (m, {
-      client,
-      Func
+      client
    }) => {
       try {
          setInterval(async () => {

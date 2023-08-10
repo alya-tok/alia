@@ -6,8 +6,7 @@ exports.run = {
    async: async (m, {
       client,
       blockList,
-      setting,
-      Func
+      setting
    }) => {
       try {
          let users = global.db.users.length

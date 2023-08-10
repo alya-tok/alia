@@ -7,8 +7,7 @@ exports.run = {
       args,
       isPrefix,
       command,
-      isBotAdmin,
-      Func
+      isBotAdmin
    }) => {
       try {
          let setting = global.db.groups.find(v => v.jid == m.chat)

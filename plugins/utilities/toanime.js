@@ -4,7 +4,7 @@ exports.run = {
    category: 'utilities',
    async: async (m, {
       client,
-      Func
+      scrap
    }) => {
       try {
          let old = new Date()

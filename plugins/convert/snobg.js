@@ -6,8 +6,7 @@ exports.run = {
       client,
       isPrefix,
       command,
-      Func,
-      Scraper
+      scrap
    }) => {
       try {
          let exif = global.db.setting
@@ -17,7 +16,7 @@ exports.run = {
             if (/image/.test(type)) {
                client.sendReact(m.chat, '🕒', m.key)
                let img = await client.downloadMediaMessage(q)
-               let image = await Scraper.uploadImageV2(img)
+               let image = await scrap.uploadImageV2(img)
                const json = await Api.neoxr('/nobg3', {
                   image: image.data.url
                })
@@ -34,7 +33,7 @@ exports.run = {
             if (!/image\/(jpe?g|png)/.test(mime)) return client.reply(m.chat, Func.texted('bold', `🚩 Only for photo.`), m)
             client.sendReact(m.chat, '🕒', m.key)
             let img = await q.download()
-            let image = await Scraper.uploadImageV2(img)
+            let image = await scrap.uploadImageV2(img)
             const json = await Api.neoxr('/nobg3', {
                image: image.data.url
             })

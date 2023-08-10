@@ -7,8 +7,7 @@ exports.run = {
       client,
       isPrefix,
       command,
-      setting,
-      Func
+      setting
    }) => {
       const types = command == 'hitstat' ? global.db.statistic : Object.fromEntries(Object.entries(global.db.statistic).filter(([_, prop]) => moment(prop.lasthit).format('DDMMYY') == moment(new Date).format('DDMMYY')))
       let stat = Object.keys(types)

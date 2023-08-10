@@ -6,8 +6,7 @@ exports.run = {
    async: async (m, {
       client,
       text,
-      participants,
-      Func
+      participants
    }) => {
       try {
          let member = participants.map(v => v.id)

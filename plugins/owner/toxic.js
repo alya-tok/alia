@@ -6,8 +6,7 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       try {
          if (command == '+toxic') {

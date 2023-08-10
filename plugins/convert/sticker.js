@@ -7,8 +7,7 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       try {
          let exif = global.db.setting

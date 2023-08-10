@@ -6,8 +6,7 @@ exports.run = {
       groupSet,
       setting,
       isAdmin,
-      isBotAdmin,
-      Func
+      isBotAdmin
    }) => {
       try {
          if (groupSet.filter && !isAdmin && isBotAdmin && !m.fromMe) {

@@ -3,8 +3,7 @@ exports.run = {
    use: 'reply viewonce',
    category: 'group',
    async: async (m, {
-      client,
-      Func
+      client
    }) => {
       try {
          if (!m.quoted) return client.reply(m.chat, Func.texted('bold', `🚩 Reply view once message to use this command.`), m)

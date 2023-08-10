@@ -3,17 +3,16 @@ exports.run = {
    category: 'miscs',
    async: async (m, {
       client,
-      env,
-      Func
+      env
    }) => {
       client.sendContact(m.chat, [{
          name: env.owner_name,
          number: env.owner,
          about: 'Owner & Creator'
       }], m, {
-         org: 'Neoxr Network',
-         website: 'https://api.neoxr.my.id',
-         email: 'contact@neoxr.my.id'
+         org: 'AlyaChan APIs',
+         website: 'https://api.alyachan.biz.id',
+         email: 'admin@alyachan.biz.id'
       })
    },
    error: false,

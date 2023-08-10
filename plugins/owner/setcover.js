@@ -5,8 +5,7 @@ exports.run = {
    category: 'owner',
    async: async (m, {
       client,
-      Func,
-      Scraper
+      scrap
    }) => {
       let setting = global.db.setting
       try {

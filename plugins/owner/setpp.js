@@ -4,8 +4,7 @@ exports.run = {
    category: 'owner',
    async: async (m, {
       client,
-      Func,
-      Scraper
+      scrap
    }) => {
       try {
      	let q = m.quoted ? m.quoted : m

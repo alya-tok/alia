@@ -8,7 +8,7 @@ exports.run = {
       text,
       isPrefix,
       command,
-      Func
+      scrap
    }) => {
       if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'id i love you'), m)
       if (text && m.quoted && m.quoted.text) {

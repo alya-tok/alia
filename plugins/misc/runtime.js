@@ -3,8 +3,7 @@ exports.run = {
    hidden: ['run'],
    category: 'miscs',
    async: async (m, {
-      client,
-      Func
+      client
    }) => {
       let _uptime = process.uptime() * 1000
       let uptime = Func.toTime(_uptime)

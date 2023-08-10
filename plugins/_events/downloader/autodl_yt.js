@@ -6,8 +6,7 @@ exports.run = {
       body,
       users,
       setting,
-      prefixes,
-      Func
+      prefixes
    }) => {
       try {
          const regex = /^(?:https?:\/\/)?(?:www\.|m\.|music\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/;

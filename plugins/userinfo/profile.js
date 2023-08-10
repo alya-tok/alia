@@ -7,8 +7,7 @@ exports.run = {
       text,
       isPrefix,
       blockList,
-      env,
-      Func
+      env
    }) => {
       let number = isNaN(text) ? (text.startsWith('+') ? text.replace(/[()+\s-]/g, '') : (text).split`@` [1]) : text
       if (!text && !m.quoted) return client.reply(m.chat, Func.texted('bold', `🚩 Mention or Reply chat target.`), m)

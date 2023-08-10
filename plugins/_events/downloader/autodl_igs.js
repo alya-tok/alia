@@ -4,8 +4,7 @@ exports.run = {
       client,
       body,
       users,
-      setting,
-      Func
+      setting
    }) => {
       try {
          const regex = /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com\/)(?:stories\/)(?:\S+)?$/;
@@ -26,7 +25,7 @@ exports.run = {
                let json = await Func.fetchJson(API('alya', '/api/igs', { url: link }, 'apikey'))
                if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
                for (let v of json.data) {
-               client.sendFile(m.chat, v.url, ``, `🍟 *Fetching* : ${((new Date - old) * 1)} ms (${i+1})`, m)
+               client.sendFile(m.chat, v.urFetching* : ${((new Date - old) * 1)} ms (${i+1})`, m)
                      await Func.delay(1500)
                   }
                })

@@ -7,8 +7,7 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       if (!text) return client.reply(m.chat, Func.example(isPrefix, command, '2 * 5'), m)
       let val = text

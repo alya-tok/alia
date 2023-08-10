@@ -4,8 +4,7 @@ exports.run = {
       client,
       body,
       users,
-      setting,
-      Func
+      setting
    }) => {
       try {
          const regex = /^(?:https?:\/\/(web\.|www\.|m\.)?(facebook|fb)\.(com|watch)\S+)?$/;

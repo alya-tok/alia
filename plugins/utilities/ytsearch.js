@@ -10,7 +10,7 @@ exports.run = {
       text,
       isPrefix,
       command,
-      Func,
+      scrap,
       env
    }) => {
       try {         

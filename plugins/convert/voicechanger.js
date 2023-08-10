@@ -7,8 +7,7 @@ exports.run = {
    category: 'voice changer',
    async: async (m, {
       client,
-      command,
-      Func
+      command
    }) => {
       try {
          if (!m.quoted) return client.reply(m.chat, Func.texted('bold', `🚩 Reply audio to use this command.`), m)

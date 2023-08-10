@@ -6,8 +6,7 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command,
-      Func
+      command
    }) => {
       try {
          let setting = global.db.setting

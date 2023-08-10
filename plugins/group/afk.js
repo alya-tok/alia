@@ -4,8 +4,7 @@ exports.run = {
    category: 'group',
    async: async (m, {
       client,
-      text,
-      Func
+      text
    }) => {
       try {
          let user = global.db.users.find(v => v.jid == m.sender)

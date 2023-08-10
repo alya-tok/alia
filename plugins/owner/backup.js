@@ -5,8 +5,7 @@ exports.run = {
    async: async (m, {
       client,
       command,
-      env,
-      Func
+      env
    }) => {
       try {
          create(env.database + '.json', JSON.stringify(global.db, null, 3), 'utf-8')

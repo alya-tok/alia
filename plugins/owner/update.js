@@ -3,8 +3,7 @@ exports.run = {
    usage: ['update'],
    category: 'owner',
    async: async (m, {
-      client,
-      Func,
+      client
    }) => {
       try {
          var stdout = execSync('git pull')

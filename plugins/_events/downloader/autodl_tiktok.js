@@ -5,8 +5,7 @@ exports.run = {
       body,
       users,
       setting,
-      prefixes,
-      Func
+      prefixes
    }) => {
       try {
          const regex = /^(?:https?:\/\/)?(?:www\.|vt\.|vm\.|t\.)?(?:tiktok\.com\/)(?:\S+)?$/;
