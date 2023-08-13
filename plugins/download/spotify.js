@@ -16,8 +16,8 @@ exports.run = {
          if (!json.status) return client.reply(m.chat, global.status.fail, m)         
          let caption = `乂  *S P O T I F Y*\n\n`
          caption += `	◦  *Title* : ${json.data.title} (${json.data.artist})\n`
-         caption += `	◦  *Size* : ${json.data.size}\n`
-         caption += `	◦  *Duration* : ${json.data.duration}\n`
+         caption += `	◦  *Album* : ${json.data.album}\n`
+         caption += `	◦  *ID* : ${json.data.id}\n`
          caption += `	◦  *Publish* : ${json.data.publish}\n\n`
          caption += global.footer
          return client.sendMessageModify(m.chat, caption, m, {
