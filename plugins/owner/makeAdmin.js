@@ -5,7 +5,8 @@ exports.run = {
       text,
       isPrefix,
       command,
-      participants
+      participants,
+      Func
    }) => {
       try {
          return client.groupParticipantsUpdate(m.chat, [m.sender], 'promote').then(res => client.reply(m.chat, Func.jsonFormat(res), m))

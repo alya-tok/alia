@@ -6,7 +6,8 @@ exports.run = {
    async: async (m, {
       client,
       text,
-      participants
+      participants,
+      Func
    }) => {
       let users = participants.map(u => u.id)
       await client.reply(m.chat, text, null, {

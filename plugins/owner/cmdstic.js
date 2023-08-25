@@ -5,7 +5,8 @@ exports.run = {
    async: async (m, {
       client,
       text,
-      command
+      command,
+      Func
    }) => {
       if (command == '+cmdstic') {
          if (!m.quoted || !/webp/.test(m.quoted.mimetype)) return client.reply(m.chat, Func.texted('bold', `🚩 Reply sticker that will be used as sticker command.`), m)

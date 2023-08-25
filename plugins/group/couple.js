@@ -5,7 +5,8 @@ exports.run = {
    category: 'group',
    async: async (m, {
       client,
-      participants
+      participants,
+      Func
    }) => {
       let member = participants.map(u => u.id)
       let now = new Date * 1

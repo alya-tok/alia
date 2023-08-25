@@ -4,7 +4,8 @@ exports.run = {
    usage: ['cmdstic'],
    category: 'owner',
    async: async (m, {
-      client
+      client,
+      Func
    }) => {
       let cmdS = Object.keys(global.db.sticker)
       if (cmdS.length == 0) return client.reply(m.chat, Func.texted('bold', `🚩 No sticker commands.`), m)

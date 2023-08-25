@@ -8,7 +8,8 @@ exports.run = {
       isPrefix,
       command,
       participants,
-      isBotAdmin
+      isBotAdmin,
+      Func
    }) => {
       try {
          let member = participants.filter(u => u.admin == null).map(u => u.id)

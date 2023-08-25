@@ -6,7 +6,8 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       if (!args || !args[0]) return client.reply(m.chat, Func.texted('bold', `🚩 Enter argument close or open.`), m)
       if (args[0] == 'open') {

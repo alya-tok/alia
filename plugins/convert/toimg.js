@@ -7,7 +7,8 @@ exports.run = {
    use: 'reply sticker',
    category: 'converter',
    async: async (m, {
-      client
+      client,
+      Func
    }) => {
       try {
          if (!m.quoted) return client.reply(m.chat, Func.texted('bold', `🚩 Reply to sticker you want to convert to an image/photo (not supported for sticker animation).`), m)

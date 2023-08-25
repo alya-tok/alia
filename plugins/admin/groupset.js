@@ -6,7 +6,8 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       let value = m.quoted ? m.quoted.text : text
       if (command == 'setname') {

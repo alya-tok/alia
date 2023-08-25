@@ -5,7 +5,8 @@ exports.run = {
    async: async (m, {
       args,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       let gc = global.db.groups.find(v => v.jid == m.chat)
       let opt = [0, 1]

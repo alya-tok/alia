@@ -6,7 +6,8 @@ exports.run = {
    async: async (m, {
       client,
       text,
-      isPrefix
+      isPrefix,
+      Func
    }) => {
       try {
          if (!text) return client.reply(m.chat, Func.texted('bold', `🚩 Give a text to make watermark.`), m)

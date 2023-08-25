@@ -7,7 +7,8 @@ exports.run = {
       args,
       isPrefix,
       command,
-      plugins
+      plugins,
+      Func
    }) => {
       let cmd = global.db.setting
       if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'tiktok'), m)

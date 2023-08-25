@@ -5,7 +5,8 @@ exports.run = {
    category: 'miscs',
    async: async (m, {
       client,
-      isPrefix
+      isPrefix,
+      Func
    }) => {
       let groupList = async () => Object.entries(await client.groupFetchAllParticipating()).slice(0).map(entry => entry[1])
       let groups = await groupList()

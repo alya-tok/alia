@@ -8,7 +8,8 @@ exports.run = {
       text,
       isPrefix,
       command,
-      scrap
+      Scraper,
+      Func
    }) => {
       try {
          if (m.quoted ? m.quoted.message : m.msg.viewOnce) {
@@ -17,7 +18,7 @@ exports.run = {
             if (/image/.test(type)) {
            	client.sendReact(m.chat, '🕒', m.key)
                let img = await client.downloadMediaMessage(q)
-               let js = await scrap.uploadImage(img)
+               let js = await Scraper.uploadImage(img)
                let json = await Func.fetchJson(API('alya', '/api/removebg2', { image: js.data.url }, 'apikey'))
                if (!json.status) return m.reply(Func.jsonFormat(json))
                client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)
@@ -29,7 +30,7 @@ exports.run = {
             if (!/image\/(jpe?g|png)/.test(mime)) return client.reply(m.chat, Func.texted('bold', `🚩 Hanya untuk photo.`), m)
             client.sendReact(m.chat, '🕒', m.key)
             let img = await q.download()
-            let js = await scrap.uploadImage(img)
+            let js = await Scraper.uploadImage(img)
             let json = await Func.fetchJson(API('alya', '/api/removebg2', { image: js.data.url }, 'apikey'))
             if (!json.status) return m.reply(Func.jsonFormat(json))
             client.sendFile(m.chat, json.data.url, 'image.jpg', '', m)

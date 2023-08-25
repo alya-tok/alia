@@ -2,7 +2,8 @@ exports.run = {
    usage: ['checkapi'],
    category: 'miscs',
    async: async (m, {
-      client
+      client,
+      Func
    }) => {
       try {
          let json = await Func.fetchJson(API('alya', '/api/check-key', {}, 'apikey'))

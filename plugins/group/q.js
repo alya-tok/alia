@@ -4,7 +4,8 @@ exports.run = {
    category: 'group',
    async: async (m, {
       client,
-      store
+      store,
+      Func
    }) => {
       try {
          if (!m.quoted) return client.reply(m.chat, Func.texted('bold', `🚩 Reply to message that contain quoted.`), m)

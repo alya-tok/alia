@@ -8,7 +8,8 @@ exports.run = {
       setting,
       plugins,
       env,
-      scrap
+      Scraper,
+      Func
    }) => {
       try {
          client.menu = client.menu ? client.menu : {}

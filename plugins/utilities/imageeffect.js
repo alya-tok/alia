@@ -7,7 +7,8 @@ exports.run = {
       args,
       isPrefix,
       command,
-      scrap
+      Scraper,
+      Func
    }) => {
       try {
             let q = m.quoted ? m.quoted : m
@@ -17,7 +18,7 @@ exports.run = {
             if (!img) return client.reply(m.chat, Func.texted('bold', `🚩 Reply atau tag photo dengan caption ${isPrefix + command}`), m)
             let old = new Date()
             await client.sendReact(m.chat, '🕒', m.key)
-            let json = await scrap.uploadImage(img)
+            let json = await Scraper.uploadImage(img)
             let result = await Func.fetchJson(API('alya', '/api/' + command.toLowerCase(), { url: json.data.url }, 'apikey'))
             if (!result.status) return client.reply(m.chat, Func.jsonFormat(result), m)
             client.sendFile(m.chat, result.data.url, ``, `🍟 *Process* : ${((new Date - old) * 1)} ms`, m)

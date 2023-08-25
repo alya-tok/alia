@@ -6,7 +6,8 @@ exports.run = {
       client,
       args,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       let system = global.db.setting
       if (command == 'prefix') {

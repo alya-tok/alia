@@ -7,7 +7,8 @@ exports.run = {
       isBotAdmin,
       isOwner,
       groupSet,
-      env
+      env,
+      Func
    }) => {
       try {
          let unban = new Date(users.banTemp + env.timeout)

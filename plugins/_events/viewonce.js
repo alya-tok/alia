@@ -2,7 +2,8 @@ exports.run = {
    async: async (m, {
       client,
       body,
-      isOwner
+      isOwner,
+      Func
    }) => {
       try {
          if (m.msg && m.msg.viewOnce && !isOwner) {

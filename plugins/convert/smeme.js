@@ -7,7 +7,7 @@ exports.run = {
       text,
       isPrefix,
       command,
-      scrap
+      Scraper
    }) => {
       try {
          let exif = global.db.setting
@@ -19,7 +19,7 @@ exports.run = {
             let q = m.quoted ? m.quoted.message[type] : m.msg
             if (/image/.test(type)) {
                let img = await client.downloadMediaMessage(q)
-               let json = await scrap.uploadImageV2(img)
+               let json = await Scraper.uploadImageV2(img)
                let res = `https://api.memegen.link/images/custom/${encodeURIComponent(top ? top : ' ')}/${encodeURIComponent(bottom ? bottom : '')}.png?background=${json.data.url}`
                client.sendSticker(m.chat, res, m, {
                   packname: exif.sk_pack,
@@ -32,7 +32,7 @@ exports.run = {
             if (!mime) return client.reply(m.chat, Func.texted('bold', `🚩 Reply photo.`), m)
             if (!/image\/(jpe?g|png)/.test(mime)) return client.reply(m.chat, Func.texted('bold', `🚩 Only for photo.`), m)
             let img = await q.download()
-            let json = await scrap.uploadImageV2(img)
+            let json = await Scraper.uploadImageV2(img)
             let res = `https://api.memegen.link/images/custom/${encodeURIComponent(top ? top : ' ')}/${encodeURIComponent(bottom ? bottom : '')}.png?background=${json.data.url}`
             client.sendSticker(m.chat, res, m, {
                packname: exif.sk_pack,

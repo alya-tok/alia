@@ -4,7 +4,8 @@ exports.run = {
        client,
        body,
        users,
-       setting
+       setting,
+       Func
     }) => {
        try {
           const regex = /http(?:s)?:\/\/(?:www\.|mobile\.)?twitter\.com\/([a-zA-Z0-9_]+)/;

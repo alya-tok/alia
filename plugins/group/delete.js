@@ -5,7 +5,8 @@ exports.run = {
    category: 'group',
    async: async (m, {
       client,
-      isBotAdmin
+      isBotAdmin,
+      Func
    }) => {
       if (!m.quoted) return
       client.sendMessage(m.chat, {

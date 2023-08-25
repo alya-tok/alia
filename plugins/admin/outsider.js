@@ -7,7 +7,8 @@ exports.run = {
       args,
       isPrefix,
       command,
-      participants
+      participants,
+      Func
    }) => {
       try {
          let member = participants.filter(v => !v.admin).map(v => v.id).filter(v => !v.startsWith('62') && v != client.decodeJid(client.user.id))

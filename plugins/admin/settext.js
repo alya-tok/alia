@@ -7,7 +7,8 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       let setup = global.db.groups.find(v => v.jid == m.chat)
       if (command == 'setwelcome') {

@@ -8,7 +8,8 @@ exports.run = {
       text,
       isPrefix,
       command,
-      scrap
+      Scraper,
+      Func
    }) => {
       try {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, `panda`), m)

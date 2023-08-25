@@ -3,7 +3,8 @@ exports.run = {
    hidden: ['getlink'],
    category: 'group',
    async: async (m, {
-      client
+      client,
+      Func
    }) => {
       await client.reply(m.chat, 'https://chat.whatsapp.com/' + (await client.groupInviteCode(m.chat)), m)
    },

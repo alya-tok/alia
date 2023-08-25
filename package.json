@@ -1,6 +1,6 @@
 {
   "name": "alya-bot",
-  "version": "4.2.0",
+  "version": "4.6.0",
   "description": "WhatsApp Bot",
   "main": "index.js",
   "scripts": {
@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/alya-tok/alya-bot#readme",
   "dependencies": {
+    "@adiwajshing/baileys": "npm:@whiskeysockets/baileys",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@colors/colors": "^1.6.0",
-    "@neoxr/wb": "^1.12.12",
-    "baileys": "6.0.7",
+    "@neoxr/wb": "^1.16.16",
     "bytes": "^3.1.2",
     "cfonts": "3.1.1",
     "json-stable-stringify": "^1.0.2",

@@ -6,7 +6,8 @@ exports.run = {
    category: 'group',
    async: async (m, {
       client,
-      participants
+      participants,
+      Func
    }) => {
       try {
          let setting = global.db.groups.find(v => v.jid == m.chat)

@@ -5,7 +5,8 @@ exports.run = {
       client,
       isPrefix,
       blockList,
-      env
+      env,
+      Func
    }) => {
       let user = global.db.users.find(v => v.jid == m.sender)
       var pic = await Func.fetchBuffer('./media/image/default.jpg')

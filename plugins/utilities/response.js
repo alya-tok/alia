@@ -9,7 +9,8 @@ exports.run = {
       args,
       isPrefix,
       command,
-      scrap
+      Scraper,
+      Func
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://google.com 127.0.0.1 8080'), m)

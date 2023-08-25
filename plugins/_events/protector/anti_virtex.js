@@ -2,7 +2,8 @@ exports.run = {
    async: async (m, {
       client,
       body,
-      groupSet
+      groupSet,
+      Func
    }) => {
       try {
          if (!m.fromMe && body && (groupSet.antivirtex && body.match(/(৭৭৭৭৭৭৭৭|๒๒๒๒๒๒๒๒|๑๑๑๑๑๑๑๑|ดุท้่เึางืผิดุท้่เึางื)/gi) || groupSet.antivirtex && body.length > 10000)) return client.sendMessage(m.chat, {

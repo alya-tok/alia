@@ -7,7 +7,8 @@ exports.run = {
       args,
       isPrefix,
       command,
-      plugins: plugs
+      plugins: plugs,
+      Func
    }) => {
 	  let pluginDisable = global.db.setting.pluginDisable
       if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'tiktok'), m)

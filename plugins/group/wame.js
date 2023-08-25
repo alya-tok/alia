@@ -3,7 +3,8 @@ exports.run = {
    category: 'group',
    async: async (m, {
       client,
-      text
+      text,
+      Func
    }) => {
       let number = m.quoted ? (m.quoted.sender).split`@` [0] : (m.sender).split`@` [0]
       let chat = text ? text : 'hai'

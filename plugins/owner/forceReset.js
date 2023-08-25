@@ -6,7 +6,8 @@ exports.run = {
       args,
       command,
       setting,
-      env
+      env,
+      Func
    }) => {
       try {
          global.db.users.filter(v => v.limit < env.limit && !v.premium).map(v => v.limit = args[0] ? args[0] : env.limit)

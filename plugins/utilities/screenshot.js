@@ -8,7 +8,8 @@ exports.run = {
       args,
       isPrefix,
       command,
-      scrap
+      Scraper,
+      Func
    }) => {
       try {
          if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://api.alyachan.my.id'), m)

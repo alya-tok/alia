@@ -3,7 +3,8 @@ exports.run = {
    category: 'miscs',
    async: async (m, {
       client,
-      env
+      env,
+      Func
    }) => {
       client.sendContact(m.chat, [{
          name: env.owner_name,

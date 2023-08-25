@@ -7,7 +7,8 @@ exports.run = {
       client,
       text,
       isPrefix,
-      command
+      command,
+      Func
    }) => {
       try {
          if (!text) return client.reply(m.chat, `• ${Func.texted('bold', `Example`)} :\n\n${isPrefix + command} https://soundcloud.com/cipilatoz/keisya-levronka-tak-ingin-usai`, m)
@@ -28,7 +29,9 @@ exports.run = {
          largeThumb: true,
          thumbnail: await Func.fetchBuffer(json.data.thumbnail) }).then(() => {
          client.sendFile(m.chat, json.data.audio.url, json.data.audio.filename, '', m, {
-         document: true
+         document: true,
+         album: 'Alya Music',
+         APIC: await Func.fetchBuffer(json.data.thumbnail)
          })
          })
          } else if (/(1|2|3|4|5|6|7|8|9|10)/i.test(text)) {
@@ -50,7 +53,9 @@ exports.run = {
          largeThumb: true,
          thumbnail: await Func.fetchBuffer(json.data.thumbnail) }).then(() => {
          client.sendFile(m.chat, json.data.audio.url, json.data.audio.filename, '', m, {
-         document: true
+         document: true,
+         album: 'Alya Music',
+         APIC: await Func.fetchBuffer(json.data.thumbnail)
          })
          })
          } else {

@@ -5,7 +5,8 @@ exports.run = {
    async: async (m, {
       client,
       text,
-      command
+      command,
+      Func
    }) => {
       try {
          let q = m.quoted ? m.quoted : m

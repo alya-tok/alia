@@ -7,7 +7,8 @@ exports.run = {
       text,
       command,
       ctx,
-      scrap
+      Scraper,
+      Func
    }) => {
       if (!text) return
       if (command == '=>') {
