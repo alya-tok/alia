@@ -10,7 +10,8 @@ exports.run = {
       text,
       isPrefix,
       command,
-      env
+      env,
+      Scraper
    }) => {
       try {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'lathi'), m)

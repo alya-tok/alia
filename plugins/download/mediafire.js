@@ -11,7 +11,8 @@ const {
      args,
      isPrefix,
      command,
-     env
+     env,
+     Scraper
    }) => {
      try {
        if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://www.mediafire.com/file/1fqjqg7e8e2v3ao/YOWA.v8.87_By.SamMods.apk/file'), m)

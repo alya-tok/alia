@@ -10,7 +10,8 @@ exports.run = {
       text,
       isPrefix,
       command,
-      env
+      env,
+      Scraper
    }) => {
       try {
             if (/yt?(a|mp3)/i.test(command)) {
