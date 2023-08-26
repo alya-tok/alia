@@ -19,6 +19,7 @@ exports.run = {
       if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
       let teks = `◦  *ID* : ${json.data.id}\n`
       teks += `◦  *Width* : ${json.data.width}\n`
+      teks += `◦  *Height* : ${json.data.height}\n`
       teks += `◦  *Seed* : ${json.data.seed}\n`
       teks += `◦  *Inference steps* : ${json.data.inference_steps}\n`
       teks += `◦  *Guidance scale* : ${json.data.guidance_scale}\n`
