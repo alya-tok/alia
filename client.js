@@ -52,13 +52,15 @@ client.on('ready', async () => {
    /* require all additional functions */
    require('./lib/system/config'), require('./lib/system/baileys'), require('./lib/system/functions'), require('./lib/system/scraper')
 
-   /* clear temp folder every 3 minutes */
+   /* clear temp folder every 10 minutes */
    setInterval(() => {
-      const tmpFiles = fs.readdirSync('./temp')
-      if (tmpFiles.length > 0) {
+     try {
+       const tmpFiles = fs.readdirSync('./temp')
+       if (tmpFiles.length > 0) {
          tmpFiles.filter(v => !v.endsWith('.file')).map(v => fs.unlinkSync('./temp/' + v))
-      }
-   }, 60 * 1000 * 3)
+       }
+     } catch {}
+   }, 60 * 1000 * 10)
 
    /* save database every 30 seconds */
    setInterval(async () => {

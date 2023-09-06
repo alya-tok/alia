@@ -5,7 +5,8 @@ exports.run = {
     body,
     users,
     setting,
-    Scraper
+    Scraper,
+    Func
   }) => {
     try {
       const regex = /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com\/)(?:stories\/)(?:\S+)?$/;

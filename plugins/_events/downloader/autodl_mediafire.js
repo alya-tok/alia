@@ -5,7 +5,8 @@ exports.run = {
       client,
       body,
       users,
-      setting
+      setting,
+      Func
    }) => {
       try {
          const regex = /^(?:https?:\/\/)?(?:www\.)?(?:mediafire\.com\/)(?:\S+)?$/;
