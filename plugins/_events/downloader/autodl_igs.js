@@ -6,6 +6,7 @@ exports.run = {
     users,
     setting,
     Scraper,
+    env,
     Func
   }) => {
     try {

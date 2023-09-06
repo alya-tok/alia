@@ -6,6 +6,7 @@ exports.run = {
       body,
       users,
       setting,
+      env,
       Func
    }) => {
       try {

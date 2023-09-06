@@ -7,6 +7,7 @@ exports.run = {
       users,
       setting,
       prefixes,
+      env,
       Func
    }) => {
       try {

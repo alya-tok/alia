@@ -1,4 +1,6 @@
-## ALYA-BOT V4.1-RC
+## ALYA-BOT
+
+## Biasakan baca terlebih dahulu, kalo error bacot mulu bocil goblok, kalo gabisa make gausah make asu
 
 > An implementation of [@neoxr/wb](https://www.npmjs.com/package/@neoxr/wb) which has been optimized to be lightweigth.
 
