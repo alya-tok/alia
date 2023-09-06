@@ -34,9 +34,7 @@ exports.run = {
           thumbnail: await Func.fetchBuffer(json.data.thumbnail)
         }).then(() => {
           client.sendFile(m.chat, json.data.url, json.data.name + ' - ' + json.data.artist + '.mp3', '', m, {
-            document: true,
-            album: 'Alya Music',
-            APIC: await Func.fetchBuffer(json.data.thumbnail)
+            document: true
           })
         })
       } else {

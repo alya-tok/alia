@@ -28,9 +28,7 @@ exports.run = {
            thumbnail: await Func.fetchBuffer(json.data.thumbnail)
          }).then(async () => {
            client.sendFile(m.chat, json.data.url, json.data.artist + ' ' + json.data.title + '.mp3', '', m, {
-             document: true,
-             album: 'Alya Music',
-             APIC: await Func.fetchBuffer(json.data.thumbnail)
+             document: true
            })
          })
        } else if (/(1|2|3|4|5|6|7|8|9|10)/i.test(text)) {
@@ -53,9 +51,7 @@ exports.run = {
            thumbnail: await Func.fetchBuffer(json.data.thumbnail)
          }).then(async () => {
            client.sendFile(m.chat, json.data.url, json.data.artist + ' ' + json.data.title + '.mp3', '', m, {
-             document: true,
-             albumb: 'Alya Music',
-             APIC: await Func.fetchBuffer(json.data.thumbnail)
+             document: true
            })
          })
        } else {

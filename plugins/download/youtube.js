@@ -11,7 +11,8 @@ exports.run = {
       isPrefix,
       command,
       env,
-      Scraper
+      Scraper,
+      Func
    }) => {
       try {
             if (/yt?(a|mp3)/i.test(command)) {
@@ -60,8 +61,7 @@ exports.run = {
                   thumbnail: await Func.fetchBuffer(json.thumbnail)
                }).then(async () => {
                client.sendFile(m.chat, './' + result.file, json.data.filename, '', m, {
-               document: true,
-               APIC: await Func.fetchBuffer(json.thumbnail)
+               document: true
            })
          })
          client.sendFile(m.chat, './' + result.file, json.data.filename, caption, m)
