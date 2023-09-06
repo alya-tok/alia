@@ -5,6 +5,7 @@ exports.run = {
    category: 'owner',
    async: async (m, {
       client,
+      env,
       Func
    }) => {
       let cmdS = Object.keys(global.db.sticker)

@@ -6,6 +6,7 @@ exports.run = {
       isPrefix,
       command,
       participants,
+      env,
       Func
    }) => {
       try {

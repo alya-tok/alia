@@ -6,6 +6,7 @@ exports.run = {
       client,
       text,
       command,
+      env,
       Func
    }) => {
       try {

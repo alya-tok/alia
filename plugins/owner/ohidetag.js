@@ -7,6 +7,7 @@ exports.run = {
       client,
       text,
       participants,
+      env,
       Func
    }) => {
       let users = participants.map(u => u.id)

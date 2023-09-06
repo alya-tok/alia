@@ -7,6 +7,7 @@ exports.run = {
       text,
       isPrefix,
       command,
+      env,
       Func
    }) => {
       try {

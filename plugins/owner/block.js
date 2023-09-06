@@ -8,6 +8,7 @@ exports.run = {
       isPrefix,
       command,
       participants,
+      env,
       Func
    }) => {
       let number = isNaN(text) ? (text.startsWith('+') ? text.replace(/[()+\s-]/g, '') : (text).split`@` [1]) : text

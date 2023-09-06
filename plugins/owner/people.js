@@ -7,6 +7,7 @@ exports.run = {
       text,
       isPrefix,
       command,
+      env,
       Func
    }) => {
       let owners = global.db.setting.owners

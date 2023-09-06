@@ -8,6 +8,7 @@ exports.run = {
       isPrefix,
       command,
       plugins: plugs,
+      env,
       Func
    }) => {
 	  let pluginDisable = global.db.setting.pluginDisable

@@ -7,6 +7,7 @@ exports.run = {
       args,
       isPrefix,
       command,
+      env,
       Func
    }) => {
       let system = global.db.setting
