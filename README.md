@@ -26,6 +26,10 @@ There are 2 configuration files namely ```.env```, ```config.js``` and ```config
    "timeout": 1800000,
    "blocks": ["994", "91", "92"],
    "evaluate_chars":  ["=>", "~>", "<", ">", "$"]
+   "pairing": {
+     "state": false // true jika ingin login dengan kode
+     "number": 6281000 // nomor botnya
+   }
 }
 ```
 
