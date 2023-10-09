@@ -69,7 +69,7 @@ module.exports = async (client, ctx) => {
          Object.entries(global.db.statistic).map(([_, prop]) => prop.today = 0)
       }, {
          scheduled: true,
-         timezone: 'Asia/Jakarta'
+         timezone: process.env.TZ
       })
       if (m.isGroup && !m.fromMe) {
          let now = new Date() * 1
@@ -200,7 +200,7 @@ module.exports = async (client, ctx) => {
    } catch (e) {
       if (/(undefined|overlimit|timed|timeout|users|item|time)/ig.test(e.message)) return
       console.log(e)
-      if (!m.fromMe) return m.reply(Func.jsonFormat(new Error('neoxr-bot encountered an error :' + e)))
+      if (!m.fromMe) return m.reply(Func.jsonFormat(new Error('ran-mouri encountered an error :' + e)))
    }
    Func.reload(require.resolve(__filename))
 }

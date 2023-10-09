@@ -3,6 +3,7 @@ exports.run = {
       client,
       body,
       isOwner,
+      groupSet,
       Func
    }) => {
       try {

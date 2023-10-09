@@ -8,7 +8,6 @@ exports.run = {
       isPrefix,
       command,
       plugins,
-      env,
       Func
    }) => {
       let cmd = global.db.setting

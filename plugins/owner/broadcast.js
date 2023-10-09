@@ -6,7 +6,6 @@ exports.run = {
       client,
       text,
       command,
-      env,
       Func
    }) => {
       try {
@@ -47,6 +46,19 @@ exports.run = {
                let media = await q.download()
                await client.sendFile(jid, media, '', q.text ? '乂  *B R O A D C A S T*\n\n' + q.text : '', null, null,
                   command == 'bcgc' ? {
+                     contextInfo: {
+                        mentionedJid: await (await client.groupMetadata(jid)).participants.map(v => v.id)
+                     }
+                  } : {})
+            }
+            client.reply(m.chat, Func.texted('bold', `🚩 Successfully send broadcast message to ${id.length} ${command == 'bc' ? 'chats' : 'groups'}`), m)
+         } else if (/audio/.test(mime)) {
+            for (let jid of id) {
+               await Func.delay(1500)
+               let media = await q.download()
+               await client.sendFile(jid, media, '', '', null, null,
+                  command == 'bcgc' ? {
+                     ptt: q.ptt,
                      contextInfo: {
                         mentionedJid: await (await client.groupMetadata(jid)).participants.map(v => v.id)
                      }

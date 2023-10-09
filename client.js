@@ -20,20 +20,26 @@ const client = new Baileys({
    version: [2, 2318, 11]
 })
 
-/* apikey */
+/* Don't delete it, because this is for apikey */
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 
 /* starting to connect */
-client.on('connect', async () => {
+client.on('connect', async res => {
    /* load database */
    global.db = {users:[], chats:[], groups:[], statistic:{}, sticker:{}, setting:{}, ...(await machine.fetch() ||{})}
    
    /* save database */
    await machine.save(global.db)
+
+   /* write connection log */
+   if (res && typeof res === 'object' && res.message) Func.logFile(res.message)
 })
 
 /* print error */
-client.on('error', async error => console.log(colors.red(error.message)))
+client.on('error', async error => {
+   console.log(colors.red(error.message))
+   if (error && typeof error === 'object' && error.message) Func.logFile(error.message)
+})
 
 /* bot is connected */
 client.on('ready', async () => {
@@ -45,26 +51,35 @@ client.on('ready', async () => {
          process.send('reset')
       }
    }, 60 * 1000)
-   
+
    /* create temp directory if doesn't exists */
    if (!fs.existsSync('./temp')) fs.mkdirSync('./temp')
-   
+
    /* require all additional functions */
    require('./lib/system/config'), require('./lib/system/baileys'), require('./lib/system/functions'), require('./lib/system/scraper')
 
    /* clear temp folder every 10 minutes */
    setInterval(() => {
-     try {
-       const tmpFiles = fs.readdirSync('./temp')
-       if (tmpFiles.length > 0) {
-         tmpFiles.filter(v => !v.endsWith('.file')).map(v => fs.unlinkSync('./temp/' + v))
-       }
-     } catch {}
+      try {
+         const tmpFiles = fs.readdirSync('./temp')
+         if (tmpFiles.length > 0) {
+            tmpFiles.filter(v => !v.endsWith('.file')).map(v => fs.unlinkSync('./temp/' + v))
+         }
+      } catch {}
    }, 60 * 1000 * 10)
 
-   /* save database every 30 seconds */
+   /* save database send http-request every 30 seconds */
    setInterval(async () => {
       if (global.db) await machine.save(global.db)
+      if (process.env.CLOVYR_APPNAME && process.env.CLOVYR_URL && process.env.CLOVYR_COOKIE) {
+         const response = await axios.get(process.env.CLOVYR_URL, {
+            headers: {
+               referer: 'https://clovyr.app/view/' + process.env.CLOVYR_APPNAME,
+               cookie: process.env.CLOVYR_COOKIE
+            }
+         })
+         Func.logFile(`${await response.status} - Application wake-up!`)
+      }
    }, 30_000)
 })
 
@@ -135,13 +150,17 @@ client.on('group.remove', async ctx => {
       var pic = await Func.fetchBuffer(await sock.profilePictureUrl(ctx.jid, 'image'))
    }
    const txt = (groupSet && groupSet.text_left ? groupSet.text_left : text).replace('+tag', `@${ctx.member.split`@`[0]}`).replace('+grup', `${ctx.subject}`)
-   if (groupSet && groupSet.welcome) sock.sendMessageModify(ctx.jid, txt, null, {
+   if (groupSet && groupSet.left) sock.sendMessageModify(ctx.jid, txt, null, {
       largeThumb: true,
       thumbnail: pic,
       url: global.db.setting.link
    })
 })
 
+client.on('caller', ctx => {
+	if (typeof ctx === 'boolean') return
+	client.sock.updateBlockStatus(ctx.jid, 'block')
+})
+
 // client.on('group.promote', ctx => console.log(ctx))
 // client.on('group.demote', ctx => console.log(ctx))
-// client.on('caller', ctx => console.log(ctx))

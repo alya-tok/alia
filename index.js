@@ -1,4 +1,4 @@
-require('dotenv').config(), require('rootpath')() // require('./server')
+require('dotenv').config(), require('rootpath')()//, require('./server')
 const { spawn: spawn } = require('child_process'), path = require('path'), colors = require('@colors/colors/safe'), CFonts = require('cfonts')
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
 
@@ -34,7 +34,7 @@ CFonts.say('ALYA BOT', {
    font: 'tiny',
    align: 'center',
    colors: ['system']
-}), CFonts.say('Github : https://github.com/alya-tok/alya-bot', {
+}), CFonts.say('Github : https://github.com/alya-tok/alia', {
    colors: ['system'],
    font: 'console',
    align: 'center'
