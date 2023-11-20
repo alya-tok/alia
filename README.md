@@ -4,13 +4,13 @@
 
 ### Requirements
 
-- [x] NodeJS v14
+- [x] NodeJS >=v14
 - [x] FFMPEG
 - [x] Server vCPU/RAM 1/2GB (Min)
 
 ### Configuration
 
-There are 2 configuration files namely ```.env```, ```config.js``` and ```config.json```, adjust them before installing.
+There are 3 configuration files namely ```.env```, ```config.js``` and ```config.json```, adjust them before installing.
 
 ```Javascript
 {
@@ -42,10 +42,10 @@ DATABASE_URL = ''
 ```config.js
 
 global.APIs = {
-   alya: 'https://api.alyachan.biz.id'
+   alya: 'https://api.alyachan.pro'
 }
 global.APIKeys = {
-   'https://api.alyachan.biz.id': 'YOURKEY'
+   'https://api.alyachan.pro': 'YOURKEY'
 }
 ```
 
