@@ -17,7 +17,7 @@ exports.run = {
       let member = participants.map(u => u.id)
       try {
         var pic = await Func.fetchBuffer(await client.profilePictureUrl(m.chat, 'image'))
-      } catch {} finally {
+      } catch { } finally {
         let caption = `乂  *G R O U P - I N F O*\n\n`
         caption += `	◦  *Name* : ${meta.subject}\n`
         caption += `	◦  *Member* : ${member.length}\n`

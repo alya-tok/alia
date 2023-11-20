@@ -14,9 +14,7 @@ exports.run = {
       if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'bulansutena'), m)
       client.sendReact(m.chat, '🕒', m.key)
       let old = new Date()
-      let json = await Func.fetchJson(API('alya', '/api/igs2', {
-        q: args[0]
-      }, 'apikey'))
+      let json = await Func.fetchJson(API('alya', '/api/igs2', { q: args[0] }, 'apikey'))
       if (!json.status) return client.reply(m.chat, global.status.fail, m)
       for (let i = 0; i < json.data.length; i++) {
         client.sendFile(m.chat, json.data[i].url, ``, `🍟 *Fetching* : ${((new Date - old) * 1)} ms (${i + 1})`, m)
@@ -24,7 +22,7 @@ exports.run = {
       }
     } catch (e) {
       console.log(e)
-      return client.reply(m.chat, global.status.error, m)
+      return client.reply(m.chat, Func.jsonFormat(e), m)
     }
   },
   error: false,

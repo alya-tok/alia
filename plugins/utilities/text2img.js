@@ -37,8 +37,8 @@ exports.run = {
       teks += `◦  *Prompt* : ${json.data.prompt}\n`
       teks += `◦  *Negative Prompt* : ${json.data.negative_prompt}\n`
       client.sendProgress(m.chat, teks, m)
-        await Func.delay(10000)
-        await client.sendFile(m.chat, json.data.images.url, '', ``, null)
+      await Func.delay(10000)
+      await client.sendFile(m.chat, json.data.images.url, '', ``, null)
     } catch (e) {
       m.reply(Func.jsonFormat(e))
       return client.reply(m.chat, global.status.error, m)

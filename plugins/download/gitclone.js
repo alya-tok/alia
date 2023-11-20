@@ -10,13 +10,11 @@ exports.run = {
     Func
   }) => {
     try {
-      if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://github.com/alya-tok/alya-bot'), m)
+      if (!args || !args[0]) return client.reply(m.chat, Func.example(isPrefix, command, 'https://github.com/alya-tok/alia'), m)
       if (!args[0].match('github.com')) return client.reply(m.chat, global.status.invalid, m)
       client.sendReact(m.chat, '🕒', m.key)
       let old = new Date()
-      let json = await Func.fetchJson(API('alya', '/api/gitclone', {
-        url: args[0]
-      }, 'apikey'))
+      let json = await Func.fetchJson(API('alya', '/api/gitclone', { url: args[0] }, 'apikey'))
       if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
       client.sendFile(m.chat, json.data.url, json.data.filename, ``, m)
     } catch (e) {

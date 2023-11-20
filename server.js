@@ -19,7 +19,7 @@ const runServer = async () => {
       let response = await axios(env.replit_url || 'https://google.com')
       if (env.replit_url) console.log(chalk.yellowBright.bold('Server wake-up! --', response.status))
       await sleep(30_000)
-    } catch {}
+    } catch { }
   }
 }
 

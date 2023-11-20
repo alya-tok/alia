@@ -107,3 +107,4 @@ yarn-error.log
 package-lock.json
 database.json
 database.bak
+.replit

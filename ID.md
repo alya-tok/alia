@@ -1,4 +1,4 @@
-## WBOT (neoxr-bot v4.0-rc)
+## Alia
 
 > Script ini adalah impelementasi dari module [@neoxr/wb](https://www.npmjs.com/package/@neoxr/wb) sekaligus base terbaru dari neoxr-bot yang sudah di optimasi menjadi lightweigth.
 

@@ -18,9 +18,7 @@ exports.run = {
         if (!args[0].match(/(https:\/\/www.instagram.com)/gi)) return client.reply(m.chat, global.status.invalid, m)
         client.sendReact(m.chat, '🕒', m.key)
         let old = new Date()
-        let json = await Func.fetchJson(API('alya', '/api/ig', {
-          url: Func.igFixed(args[0])
-        }, 'apikey'))
+        let json = await Func.fetchJson(API('alya', '/api/ig', { url: Func.igFixed(args[0]) }, 'apikey'))
         if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
         json.data.map(async v => {
           client.sendFile(m.chat, v.url, '', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
@@ -29,20 +27,18 @@ exports.run = {
       } else {
         if (!isPrem) return client.reply(m.chat, global.status.premium, m)
         client.sendReact(m.chat, '🕒', m.key)
-        let json = await Func.fetchJson(API('alya', '/api/ig-post', {
-          username: args[0]
-        }, 'apikey'))
+        let json = await Func.fetchJson(API('alya', '/api/ig-post', { username: args[0] }, 'apikey'))
         if (!json.status) return client.reply(m.chat, Func.jsonFormat(json), m)
         json.data.map(async v => {
           let teks = `乂  *I N S T A G R A M*\n\n`
-          teks += '	◦  *User* : ' + v.username + '\n'
-          teks += '	◦  *Likes* : ' + v.likes + '\n'
-          teks += '	◦  *Views* : ' + v.views + '\n'
-          teks += '	◦  *Type* : ' + v.type + '\n'
-          teks += '	◦  *Shortid* : ' + v.shortcode + '\n'
-          teks += '	◦  *comment* : ' + v.comments + '\n'
-          teks += '	◦  *Publish* : ' + v.time_created + '\n'
-          teks += '	◦  *Captions* : ' + v.text + '\n\n'
+          teks += '  ◦  *User* : ' + v.username + '\n'
+          teks += '  ◦  *Likes* : ' + v.likes + '\n'
+          teks += '  ◦  *Views* : ' + v.views + '\n'
+          teks += '  ◦  *Type* : ' + v.type + '\n'
+          teks += '  ◦  *Shortid* : ' + v.shortcode + '\n'
+          teks += '  ◦  *comment* : ' + v.comments + '\n'
+          teks += '  ◦  *Publish* : ' + v.time_created + '\n'
+          teks += '  ◦  *Captions* : ' + v.text + '\n\n'
           teks += global.footer
           client.sendFile(m.chat, v.downloadable, '', teks, m)
           await Func.delay(1500)
@@ -50,7 +46,7 @@ exports.run = {
       }
     } catch (e) {
       console.log(e)
-      return client.reply(m.chat, global.status.error, m)
+      return client.reply(m.chat, Func.jsonFormat(e), m)
     }
   },
   error: false,

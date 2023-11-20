@@ -1,6 +1,6 @@
 { pkgs }: {
     deps = [
-        pkgs.nodejs-14_x
+        pkgs.nodejs-17_x
         pkgs.openssh_with_kerberos
         pkgs.nodePackages.typescript
         pkgs.nodePackages.pm2

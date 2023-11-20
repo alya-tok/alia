@@ -3,7 +3,7 @@ exports.run = {
   hidden: ['ai'],
   use: 'question',
   category: 'utilities',
-  async: async(m, {
+  async: async (m, {
     client,
     text,
     isPrefix,
@@ -24,4 +24,4 @@ exports.run = {
   error: false,
   limit: true,
   restrict: true
-  }
+}
