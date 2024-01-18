@@ -1,7 +1,7 @@
-const { Function: Func, Logs, Scraper, InvCloud } = new(require('@neoxr/wb'))
+const { Function: Func, Logs, Scraper, InvCloud } = new (require('@neoxr/wb'))
 const env = require('./config.json')
 const cron = require('node-cron')
-const cache = new(require('node-cache'))({
+const cache = new (require('node-cache'))({
    stdTTL: env.cooldown
 })
 module.exports = async (client, ctx) => {
@@ -9,19 +9,19 @@ module.exports = async (client, ctx) => {
    try {
       // "InvCloud" reduces RAM usage and minimizes errors during rewrite (according to recommendations/suggestions from Baileys)
       require('./lib/system/schema')(m, env), InvCloud(store)
-      const isOwner = [client.decodeJid(client.user.id).split`@` [0], env.owner, ...global.db.setting.owners].map(v => v + '@s.whatsapp.net').includes(m.sender)
+      const isOwner = [env.owner, client.decodeJid(client.user.id).split`@`[0], ...global.db.setting.owners].map(v => v + '@s.whatsapp.net').includes(m.sender)
       const isPrem = (global.db.users.some(v => v.jid == m.sender) && global.db.users.find(v => v.jid == m.sender).premium)
       const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat) : {}
       const participants = m.isGroup ? groupMetadata.participants : [] || []
       const adminList = m.isGroup ? await client.groupAdmin(m.chat) : [] || []
       const isAdmin = m.isGroup ? adminList.includes(m.sender) : false
-      const isBotAdmin = m.isGroup ? adminList.includes((client.user.id.split`:` [0]) + '@s.whatsapp.net') : false
+      const isBotAdmin = m.isGroup ? adminList.includes((client.user.id.split`:`[0]) + '@s.whatsapp.net') : false
       const blockList = typeof await (await client.fetchBlocklist()) != 'undefined' ? await (await client.fetchBlocklist()) : []
       const groupSet = global.db.groups.find(v => v.jid == m.chat),
          chats = global.db.chats.find(v => v.jid == m.chat),
          users = global.db.users.find(v => v.jid == m.sender),
          setting = global.db.setting
-      Logs(client, m, false, 1) /* 1 = print all message, 0 = print only cmd message */
+      Logs(client, m, false) /* 1 = print all message, 0 = print only cmd message */
       if (!setting.online) client.sendPresenceUpdate('unavailable', m.chat)
       if (setting.online) {
          client.sendPresenceUpdate('available', m.chat)
@@ -30,7 +30,7 @@ module.exports = async (client, ctx) => {
       if (m.isGroup && !isBotAdmin) {
          groupSet.localonly = false
       }
-      if (!users) global.db.users.push({
+      if (!users || typeof users.limit === undefined) return global.db.users.push({
          jid: m.sender,
          banned: false,
          limit: env.limit,
@@ -52,7 +52,7 @@ module.exports = async (client, ctx) => {
             users.expired = 0
             users.limit = env.limit
          })
-      }     
+      }
       if (m.isGroup) groupSet.activity = new Date() * 1
       if (users) users.lastseen = new Date() * 1
       if (chats) {
@@ -90,8 +90,8 @@ module.exports = async (client, ctx) => {
       if (body && prefix && commands.includes(command) || body && !prefix && commands.includes(command) && setting.noprefix || body && !prefix && commands.includes(command) && env.evaluate_chars.includes(command)) {
          if (setting.error.includes(command)) return client.reply(m.chat, Func.texted('bold', `🚩 Command _${(prefix ? prefix : '') + command}_ disabled.`), m)
          if (!m.isGroup && env.blocks.some(no => m.sender.startsWith(no))) return client.updateBlockStatus(m.sender, 'block')
-         if (cache.has(m.sender) && cache.get(m.sender) == 'on_hold' && !isOwner) return
-         cache.set(m.sender, 'on_hold')
+         if (cache.has(m.chat) && cache.get(m.chat) === 'on_hold' && !m.isBot) return
+         cache.set(m.chat, 'on_hold')
          if (commands.includes(command)) {
             users.hit += 1
             users.usebot = new Date() * 1
@@ -167,6 +167,8 @@ module.exports = async (client, ctx) => {
          }
       } else {
          const is_events = Object.fromEntries(Object.entries(plugins).filter(([name, prop]) => !prop.run.usage))
+         if (cache.has(m.chat) && cache.get(m.chat) === 'on_hold' && !m.isBot) return
+         cache.set(m.sender, 'on_hold')
          for (let name in is_events) {
             let event = is_events[name].run
             if (m.fromMe || m.chat.endsWith('broadcast') || /pollUpdate/.test(m.mtype)) continue
@@ -201,7 +203,7 @@ module.exports = async (client, ctx) => {
    } catch (e) {
       if (/(undefined|overlimit|timed|timeout|users|item|time)/ig.test(e.message)) return
       console.log(e)
-      if (!m.fromMe) return m.reply(Func.jsonFormat(new Error('alia encountered an error :' + e)))
+      if (!m.fromMe) return m.reply(Func.jsonFormat(new Error('alia-bot encountered an error :' + e)))
    }
    Func.reload(require.resolve(__filename))
 }
