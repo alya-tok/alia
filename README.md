@@ -1,6 +1,8 @@
-## Alia
+## Alia - Wabot
 
 > An implementation of [@neoxr/wb](https://www.npmjs.com/package/@neoxr/wb) which has been optimized to be lightweigth.
+
+> A little recoding
 
 ### Requirements
 
@@ -14,7 +16,7 @@ There are 3 configuration files namely ```.env```, ```config.js``` and ```config
 
 ```Javascript
 {
-   "owner": "62626262626262",
+   "owner": "6285815700861",
    "owner_name": "alya",
    "database": "data",
    "limit": 15,
@@ -25,34 +27,35 @@ There are 3 configuration files namely ```.env```, ```config.js``` and ```config
    "timer": 180000,
    "timeout": 1800000,
    "blocks": ["994", "91", "92"],
-   "evaluate_chars":  ["=>", "~>", "<", ">", "$"]
+   "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
    "pairing": {
-     "state": false // true jika ingin login dengan kode
-     "number": 6281000 // nomor botnya
+     "state": false // true if you want to login with code
+     "number": 6281000 // bot number
    }
 }
 ```
 
-```.env
-
-### Database : https://www.mongodb.com/
-DATABASE_URL = ''
-```
-
-```config.js
-
+```Javascript
 global.APIs = {
    alya: 'https://api.alyachan.pro'
 }
 global.APIKeys = {
-   'https://api.alyachan.pro': 'YOURKEY'
+   'https://api.alyachan.pro': 'yourkey'
 }
+```
+
+```.env
+### Database : https://www.mongodb.com/
+DATABASE_URL = ''
+
+### Timezone (Important)
+TZ = 'Asia/Jakarta'
 ```
 
 **Notes** :
 + ```ram_limit``` : ram usage limit, for example you have a server with 1gb of ram set before the maximum capacity is 900mb.
 
-+ ```global.APIKeys``` : some of the features in this script use apikey, especially the downloader feature, to get an apiKey you can get it on the [Alyachan Api's](https://api.alyachan.biz.id) with prices that vary according to your needs.
++ ```global.APIKeys``` : some of the features in this script use apikey, especially the downloader feature, to get an apiKey you can get it on the [Alyachan Api's](https://api.alyachan.pro) with prices that vary according to your needs.
 
 + ```DATABASE_URL``` : can be filled with mongo and postgresql URLs to use localdb just leave it blank and the data will be saved to the .json file.
 

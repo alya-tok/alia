@@ -1,43 +1,60 @@
-## Alia
+## Alia - Wabot
 
 > Script ini adalah impelementasi dari module [@neoxr/wb](https://www.npmjs.com/package/@neoxr/wb) sekaligus base terbaru dari neoxr-bot yang sudah di optimasi menjadi lightweigth.
 
+> Rekode dikit
+
 ### Requirements
 
-- [x] NodeJS v14
+- [x] NodeJS >=v14
 - [x] FFMPEG
 - [x] Server vCPU/RAM 1/2GB (Min)
 
 ### Konfigurasi
 
-Terdapat 2 file konfigurasi yaitu ```.env``` dan ```config.json```, sesuaikan terlebih dahulu sebelum melakukan instalasi.
+Terdapat 3 file konfigurasi yaitu ```.env```, ```config.json``` dan ```config.js```, sesuaikan terlebih dahulu sebelum melakukan instalasi.
 
 ```Javascript
 {
-   "owner": "6285887776722",
-   "owner_name": "Wildan Izzudin"
+   "owner": "6285815700861",
+   "owner_name": "Alya"
    "database": "data",
-   "limit": 25,
-   "ram_usage": 900000000, // <-- 900mb in bytes
+   "limit": 15,
+   "ram_limit": "900mb", // <-- 900mb in bytes
    "max_upload": 60, // <-- 60mb
    "max_upload_free": 7, // <-- 7mb
    "cooldown": 5, // <-- 5 seconds
    "timer": 1800000, // <-- 30 mins in ms
    "blocks": ["1", "994"],
-   "evaluate_chars":  ["=>", "~>", "<", ">", "$"]
+   "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
+   "pairing": {
+     "state": false // true jika ingin login dengan kode
+     "number": 6281000 // nomor botnya
+   }
+}
+```
+
+```Javascript
+global.header = `© alia v${require('package.json').version}`
+global.footer = `ʟɪɢʜᴛᴡᴇɪɢʜᴛ ᴡᴀʙᴏᴛ ᴍᴀᴅᴇ ʙʏ ᴀʟʏᴀ ッ`
+global.APIs = {
+  alya: 'https://api.alyachan.pro'
+}
+global.APIKeys = {
+  'https://api.alyachan.pro': 'yourkey'
 }
 ```
 
 ```.env
-### ApiKey : https://api.neoxr.my.id
-API_KEY = 'your_apikey'
-
 ### Database : https://www.mongodb.com/
 DATABASE_URL = ''
+
+### Timezone (Important)
+TZ = 'Asia/Jakarta'
 ```
 
 *Note* : 
-+ ```API_KEY``` : beberapa fitur pada script ini menggunakan apikey terutama fitur downloader, untuk mendapatkan apiKey kalian bisa mendapatkannya di website [Neoxr Api's](https://api.neoxr.my.id) dengan harga yang bervariasi sesuai kebutuhan.
++ ```API_KEY``` : beberapa fitur pada script ini menggunakan apikey terutama fitur downloader, untuk mendapatkan apiKey kalian bisa mendapatkannya di website [AlyaChan Api's](https://api.alyachan.pro) dengan harga yang bervariasi sesuai kebutuhan.
 
 + ```DATABASE_URL``` : bisa di isi dengan URL mongo dan postgresql untuk mengunakan localdb cukup biarkan kosong saja dan data akan tersimpan kedalam file .json
 

@@ -1,7 +1,7 @@
 {
    "owner": "6285815700861",
    "owner_name": "Owner",
-   "database": "database",
+   "database": "data",
    "limit": 15,
    "ram_limit": "1GB",
    "max_upload": 50,

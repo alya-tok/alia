@@ -1,4 +1,4 @@
-const { Function: Func, Logs, Scraper } = new(require('@neoxr/wb'))
+const { Function: Func, Logs, Scraper, InvCloud } = new(require('@neoxr/wb'))
 const env = require('./config.json')
 const cron = require('node-cron')
 const cache = new(require('node-cache'))({
@@ -7,7 +7,8 @@ const cache = new(require('node-cache'))({
 module.exports = async (client, ctx) => {
    const { store, m, body, prefix, plugins, commands, args, command, text, prefixes } = ctx
    try {
-      require('./lib/system/schema')(m, env) /* input database */
+      // "InvCloud" reduces RAM usage and minimizes errors during rewrite (according to recommendations/suggestions from Baileys)
+      require('./lib/system/schema')(m, env), InvCloud(store)
       const isOwner = [client.decodeJid(client.user.id).split`@` [0], env.owner, ...global.db.setting.owners].map(v => v + '@s.whatsapp.net').includes(m.sender)
       const isPrem = (global.db.users.some(v => v.jid == m.sender) && global.db.users.find(v => v.jid == m.sender).premium)
       const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat) : {}
@@ -200,7 +201,7 @@ module.exports = async (client, ctx) => {
    } catch (e) {
       if (/(undefined|overlimit|timed|timeout|users|item|time)/ig.test(e.message)) return
       console.log(e)
-      if (!m.fromMe) return m.reply(Func.jsonFormat(new Error('ran-mouri encountered an error :' + e)))
+      if (!m.fromMe) return m.reply(Func.jsonFormat(new Error('alia encountered an error :' + e)))
    }
    Func.reload(require.resolve(__filename))
 }
