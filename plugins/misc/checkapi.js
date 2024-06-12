@@ -6,7 +6,7 @@ exports.run = {
       Func
    }) => {
       try {
-         let json = await Func.fetchJson(API('alya', '/api/check-key', {}, 'apikey'))
+         let json = await Func.fetchJson(API('alya', '/v1/check-key', {}, 'apikey'))
          await client.reply(m.chat, Func.jsonFormat(json), m)
       } catch (e) {
          client.reply(m.chat, global.status.error, m)

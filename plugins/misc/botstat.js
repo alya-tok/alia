@@ -63,6 +63,7 @@ const statistic = (Func, stats, system) => {
  –  *S Y S T E M*
 
 ┌  ◦  ${Func.texted('bold', system.autodownload ? '[ √ ]' : '[ × ]')}  Auto Download
+│  ◦  ${Func.texted('bold', system.antispam ? '[ √ ]' : '[ × ]')}  Anti Spam
 │  ◦  ${Func.texted('bold', system.debug ? '[ √ ]' : '[ × ]')}  Debug Mode
 │  ◦  ${Func.texted('bold', system.groupmode ? '[ √ ]' : '[ × ]')}  Group Mode
 │  ◦  ${Func.texted('bold', system.online ? '[ √ ]' : '[ × ]')}  Always Online
@@ -75,25 +76,26 @@ ${global.footer}`
    } else {
       return `乂  *B O T S T A T*
 
-	◦  ${Func.texted('bold', Func.formatNumber(stats.groups))} Groups Joined
-	◦  ${Func.texted('bold', Func.formatNumber(stats.chats))} Personal Chats
-	◦  ${Func.texted('bold', Func.formatNumber(stats.users))} Users In Database
-	◦  ${Func.texted('bold', Func.formatNumber(stats.banned))} Users Banned
-	◦  ${Func.texted('bold', Func.formatNumber(stats.blocked))} Users Blocked
-	◦  ${Func.texted('bold', Func.formatNumber(stats.premium))} Premium Users
-	◦  ${Func.texted('bold', Func.formatNumber(stats.hitstat))} Commands Hit
-	◦  Runtime : ${Func.texted('bold', stats.uptime)}
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.groups))} Groups Joined
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.chats))} Personal Chats
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.users))} Users In Database
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.banned))} Users Banned
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.blocked))} Users Blocked
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.premium))} Premium Users
+   ◦  ${Func.texted('bold', Func.formatNumber(stats.hitstat))} Commands Hit
+   ◦  Runtime : ${Func.texted('bold', stats.uptime)}
 
 乂  *S Y S T E M*
 
-	◦  ${Func.texted('bold', system.autodownload ? '[ √ ]' : '[ × ]')}  Auto Download
-	◦  ${Func.texted('bold', system.debug ? '[ √ ]' : '[ × ]')}  Debug Mode
-	◦  ${Func.texted('bold', system.groupmode ? '[ √ ]' : '[ × ]')}  Group Mode
-	◦  ${Func.texted('bold', system.online ? '[ √ ]' : '[ × ]')}  Always Online
-	◦  ${Func.texted('bold', system.self ? '[ √ ]' : '[ × ]')}  Self Mode
-	◦  ${Func.texted('bold', system.noprefix ? '[ √ ]' : '[ × ]')}  No Prefix
-	◦  Prefix : ${Func.texted('bold', system.multiprefix ? '( ' + system.prefix.map(v => v).join(' ') + ' )' : '( ' + system.onlyprefix + ' )')}
-	◦  Reset At : ${moment(system.lastReset).format('DD/MM/YYYY HH:mm')}
+   ◦  ${Func.texted('bold', system.autodownload ? '[ √ ]' : '[ × ]')}  Auto Download
+   ◦  ${Func.texted('bold', system.antispam ? '[ √ ]' : '[ × ]')}  Anti Spam
+   ◦  ${Func.texted('bold', system.debug ? '[ √ ]' : '[ × ]')}  Debug Mode
+   ◦  ${Func.texted('bold', system.groupmode ? '[ √ ]' : '[ × ]')}  Group Mode
+   ◦  ${Func.texted('bold', system.online ? '[ √ ]' : '[ × ]')}  Always Online
+   ◦  ${Func.texted('bold', system.self ? '[ √ ]' : '[ × ]')}  Self Mode
+   ◦  ${Func.texted('bold', system.noprefix ? '[ √ ]' : '[ × ]')}  No Prefix
+   ◦  Prefix : ${Func.texted('bold', system.multiprefix ? '( ' + system.prefix.map(v => v).join(' ') + ' )' : '( ' + system.onlyprefix + ' )')}
+   ◦  Reset At : ${moment(system.lastReset).format('DD/MM/YYYY HH:mm')}
 
 ${global.footer}`
    }

@@ -40,7 +40,7 @@ exports.run = {
           "replyMessage": {}
         }]
       }
-      const json = await axios.post('https://quote-api.neoxr.eu/generate', obj, {
+      const json = await axios.post('https://bot.lyo.su/quote/generate', obj, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -55,7 +55,6 @@ exports.run = {
       client.reply(m.chat, Func.texted('bold', `🚩 Can't generate sticker.`), m)
     }
   },
-  error: false,
   limit: true,
   cache: true,
   location: __filename

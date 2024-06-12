@@ -16,32 +16,35 @@ Terdapat 3 file konfigurasi yaitu ```.env```, ```config.json``` dan ```config.js
 
 ```Javascript
 {
-   "owner": "6285815700861",
-   "owner_name": "Alya"
-   "database": "data",
-   "limit": 15,
-   "ram_limit": "900mb", // <-- 900mb in bytes
-   "max_upload": 60, // <-- 60mb
-   "max_upload_free": 7, // <-- 7mb
-   "cooldown": 5, // <-- 5 seconds
-   "timer": 1800000, // <-- 30 mins in ms
-   "blocks": ["1", "994"],
-   "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
-   "pairing": {
-     "state": false // true jika ingin login dengan kode
-     "number": 6281000 // nomor botnya
-   }
+  "owner": "6285815700861",
+  "owner_name": "Owner",
+  "database": "data",
+  "limit": 15,
+  "ram_limit": "900mb",
+  "max_upload": 50,
+  "max_upload_free": 10,
+  "cooldown": 1,
+  "timer": 180000,
+  "timeout": 1800000,
+  "permanent_threshold": 3,
+  "notify_threshold": 4,
+  "banned_threshold": 5,
+  "blocks": ["994", "91", "92"],
+  "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
+  "pairing": {
+    "state": false,
+    "number": 6281
+  },
+  "replit_url": ""
 }
 ```
 
 ```Javascript
-global.header = `© alia v${require('package.json').version}`
-global.footer = `ʟɪɢʜᴛᴡᴇɪɢʜᴛ ᴡᴀʙᴏᴛ ᴍᴀᴅᴇ ʙʏ ᴀʟʏᴀ ッ`
 global.APIs = {
-  alya: 'https://api.alyachan.pro'
+  alya: 'https://api.alyachan.dev'
 }
 global.APIKeys = {
-  'https://api.alyachan.pro': 'yourkey'
+  'https://api.alyachan.dev': 'yourkey'
 }
 ```
 
@@ -54,7 +57,7 @@ TZ = 'Asia/Jakarta'
 ```
 
 *Note* : 
-+ ```API_KEY``` : beberapa fitur pada script ini menggunakan apikey terutama fitur downloader, untuk mendapatkan apiKey kalian bisa mendapatkannya di website [AlyaChan Api's](https://api.alyachan.pro) dengan harga yang bervariasi sesuai kebutuhan.
++ ```API_KEY``` : beberapa fitur pada script ini menggunakan apikey terutama fitur downloader, untuk mendapatkan apiKey kalian bisa mendapatkannya di website [AlyaChan Api's](https://api.alyachan.dev) dengan harga yang bervariasi sesuai kebutuhan.
 
 + ```DATABASE_URL``` : bisa di isi dengan URL mongo dan postgresql untuk mengunakan localdb cukup biarkan kosong saja dan data akan tersimpan kedalam file .json
 
@@ -81,32 +84,32 @@ $ pm2 start index.js && pm2 save && pm2 logs
 
 ```Javascript
 exports.run = {
-   usage: ['mediafire'],
-   hidden: ['mf'],
-   use: 'link',
-   category: 'downloader',
-   async: async (m, {
-      client,
-      args,
-      text,
-      isPrefix,
-      command,
-      env,
-      Scraper,
-      Func
-   }) => {
-      try {
-         // do something
-      } catch (e) {
-         console.log(e)
-         client.reply(m.chat, Func.jsonFormat(e), m)
-      }
-   },
-   error: false,
-   limit: true,
-   restrict: true,
-   cache: true,
-   location: __filename
+  usage: ['mediafire'],
+  hidden: ['mf'],
+  use: 'link',
+  category: 'downloader',
+  async: async (m, {
+    client,
+    args,
+    text,
+    isPrefix,
+    command,
+    env,
+    Scraper,
+    Func
+  }) => {
+    try {
+      // do something
+    } catch (e) {
+      console.log(e)
+      client.reply(m.chat, Func.jsonFormat(e), m)
+    }
+  },
+  error: false,
+  limit: true,
+  restrict: true,
+  cache: true,
+  location: __filename
 }
 ```
 
@@ -164,20 +167,20 @@ cmd.async(m, { client, args, text, isPrefix: prefix, prefixes, command, groupMet
 
 ```Javascript
 exports.run = {
-   async: async (m, {
-      client,
-      body,
-      prefixes
-   }) => {
-      try {
-         // do something
-      } catch (e) {
-         return client.reply(m.chat, Func.jsonFormat(e), m)
-      }
-   },
-   error: false,
-   cache: true,
-   location: __filename
+  async: async (m, {
+    client,
+    body,
+    prefixes
+  }) => {
+    try {
+      // do something
+    } catch (e) {
+      return client.reply(m.chat, Func.jsonFormat(e), m)
+    }
+  },
+  error: false,
+  cache: true,
+  location: __filename
 }
 ```
 

@@ -6,6 +6,7 @@ exports.run = {
     client,
     isPrefix,
     command,
+    Func,
     Scraper
   }) => {
     try {
@@ -17,11 +18,11 @@ exports.run = {
           client.sendReact(m.chat, '🕒', m.key)
           let img = await client.downloadMediaMessage(q)
           let image = await Scraper.uploadImageV2(img)
-          const json = await Api.neoxr('/nobg3', {
+          const json = await Func.fetchJson(API('alya', '/api/removebg3', {
             image: image.data.url
-          })
+          }, 'apikey'))
           if (!json.status) return m.reply(Func.jsonFormat(json))
-          client.sendSticker(m.chat, json.data.no_background, m, {
+          client.sendSticker(m.chat, await Func.fetchBuffer(json.data.url), m, {
             packname: exif.sk_pack,
             author: exif.sk_author
           })
@@ -34,11 +35,11 @@ exports.run = {
         client.sendReact(m.chat, '🕒', m.key)
         let img = await q.download()
         let image = await Scraper.uploadImageV2(img)
-        const json = await Api.neoxr('/nobg3', {
+        const json = await Func.fetchJson(API('alya', '/api/removebg3', {
           image: image.data.url
-        })
+        }, 'apikey'))
         if (!json.status) return m.reply(Func.jsonFormat(json))
-        client.sendSticker(m.chat, json.data.no_background, m, {
+        client.sendSticker(m.chat, await Func.fetchBuffer(json.data.url), m, {
           packname: exif.sk_pack,
           author: exif.sk_author
         })
@@ -47,7 +48,6 @@ exports.run = {
       return client.reply(m.chat, Func.jsonFormat(e), m)
     }
   },
-  error: false,
   premium: true,
   limit: true,
   cache: true,

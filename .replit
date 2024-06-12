@@ -1,17 +1,9 @@
-run = "clear && node ."
-entrypoint = "index.js"
-hidden = [".config", "package-lock.json"]
-modules = ["nodejs-20:v8-20230920-bd784b9"]
-
+run = "clear && node . --server"
 # run = "clear && pm2 kill && pm2 start index.js && pm2 save && pm2 logs"
 
 [nix]
-channel = "stable-21_11"
+channel = "stable-23_11"
 
-[unitTest]
-language = "nodejs"
-
-[deployment]
-run = ["node", "index.js"]
-deploymentTarget = "cloudrun"
-ignorePorts = false
+[[ports]]
+localPort = 8080
+externalPort = 80

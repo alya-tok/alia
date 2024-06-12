@@ -16,31 +16,35 @@ There are 3 configuration files namely ```.env```, ```config.js``` and ```config
 
 ```Javascript
 {
-   "owner": "6285815700861",
-   "owner_name": "alya",
-   "database": "data",
-   "limit": 15,
-   "ram_limit": "900mb",
-   "max_upload": 50,
-   "max_upload_free": 10,
-   "cooldown": 3,
-   "timer": 180000,
-   "timeout": 1800000,
-   "blocks": ["994", "91", "92"],
-   "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
-   "pairing": {
-     "state": false // true if you want to login with code
-     "number": 6281000 // bot number
-   }
+  "owner": "6285815700861",
+  "owner_name": "Owner",
+  "database": "data",
+  "limit": 15,
+  "ram_limit": "900mb",
+  "max_upload": 50,
+  "max_upload_free": 10,
+  "cooldown": 1,
+  "timer": 180000,
+  "timeout": 1800000,
+  "permanent_threshold": 3,
+  "notify_threshold": 4,
+  "banned_threshold": 5,
+  "blocks": ["994", "91", "92"],
+  "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
+  "pairing": {
+    "state": false,
+    "number": 6281
+  },
+  "replit_url": ""
 }
 ```
 
 ```Javascript
 global.APIs = {
-   alya: 'https://api.alyachan.pro'
+  alya: 'https://api.alyachan.dev'
 }
 global.APIKeys = {
-   'https://api.alyachan.pro': 'yourkey'
+  'https://api.alyachan.dev': 'yourkey'
 }
 ```
 
@@ -82,32 +86,32 @@ $ pm2 start index.js && pm2 save && pm2 logs
 
 ```Javascript
 exports.run = {
-   usage: ['mediafire'],
-   hidden: ['mf'],
-   use: 'link',
-   category: 'downloader',
-   async: async (m, {
-      client,
-      args,
-      text,
-      isPrefix,
-      command,
-      env,
-      Scraper,
-      Func
-   }) => {
-      try {
-         // do something
-      } catch (e) {
-         console.log(e)
-         client.reply(m.chat, Func.jsonFormat(e), m)
-      }
-   },
-   error: false,
-   limit: true,
-   restrict: true,
-   cache: true,
-   location: __filename
+  usage: ['mediafire'],
+  hidden: ['mf'],
+  use: 'link',
+  category: 'downloader',
+  async: async (m, {
+    client,
+    args,
+    text,
+    isPrefix,
+    command,
+    env,
+    Scraper,
+    Func
+  }) => {
+    try {
+      // do something
+    } catch (e) {
+      console.log(e)
+      client.reply(m.chat, Func.jsonFormat(e), m)
+    }
+  },
+  error: false,
+  limit: true,
+  restrict: true,
+  cache: true,
+  location: __filename
 }
 ```
 
@@ -164,20 +168,20 @@ cmd.async(m, { client, args, text, isPrefix: prefix, prefixes, command, groupMet
 
 ```Javascript
 exports.run = {
-   async: async (m, {
-      client,
-      body,
-      prefixes
-   }) => {
-      try {
-         // do something
-      } catch (e) {
-         return client.reply(m.chat, Func.jsonFormat(e), m)
-      }
-   },
-   error: false,
-   cache: true,
-   location: __filename
+  async: async (m, {
+    client,
+    body,
+    prefixes
+  }) => {
+    try {
+      // do something
+    } catch (e) {
+      return client.reply(m.chat, Func.jsonFormat(e), m)
+    }
+  },
+  error: false,
+  cache: true,
+  location: __filename
 }
 ```
 
